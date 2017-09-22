@@ -506,7 +506,7 @@ except:
 * [WSGI org](http://wsgi.readthedocs.org/en/latest/)  
 看起来好像官方网站的样子，覆盖了关于WSGI的方方面面，包含学习资源，支持WSGI的框架列表，服务器列表，应用程序列表，middleware和库等等。
 * [wsgiref](https://pypi.python.org/pypi/wsgiref)  
-WSGI的参考实现，阅读源代码后有利于对WSGI的理解。我在GitHub上有自己阅读后的注释版本，并且作了一些图，有需要可以看这里：[wsgiref 源代码阅读](https://github.com/minixalpha/SourceLearning/tree/master/wsgiref-0.1.2)
+WSGI的参考实现，阅读源代码后有利于对WSGI的理解。我在GitHub上有自己阅读后的注释版本，并且作了一些图，有需要可以看这里：[wsgiref 源代码阅读](https://github.com/shnnosuke/SourceLearning/tree/master/wsgiref-0.1.2)
 
 另外，还有一些文章介绍了一些基本概念和一些有用的实例，非常不错。
 

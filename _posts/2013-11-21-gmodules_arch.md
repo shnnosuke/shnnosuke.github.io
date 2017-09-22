@@ -150,7 +150,7 @@ if __name__ == "__main__":
 实现映射。还需要注意对静态文件,即css,js,img,rss文件的单独处理。
 
 所有这些都与之前分析过的那些小项目不同，回想起我之前写的 
-[BlogSystem](https://github.com/minixalpha/BlogSystem), 所有的处理实现都放在
+[BlogSystem](https://github.com/shnnosuke/BlogSystem), 所有的处理实现都放在
 同一个文件中，导致最后一个文件居然 700多行，真是让人潸然泪下。。。
 而且之前也不知道使用子程序，所有处理都堆在一起。看来读完这份源代码，真应该重构一
 下了。

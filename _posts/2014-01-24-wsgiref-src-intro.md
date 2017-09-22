@@ -19,7 +19,7 @@ WSGI 在 [PEP 333](http://www.python.org/dev/peps/pep-0333/) 中描述，但是�
 
 ## wsgiref 源代码分析
 
-wsgiref 源代码可以在 [pypi wsgiref 0.1.2](https://pypi.python.org/pypi/wsgiref) 下载。另外，我在阅读的过程中作了大量注释，包含模块介绍，调用层次关系，demo的运行结果，等 等，还包含了阅读过程中制作的思维导图。GitHub地址[注释版wsgiref](https://github.com/minixalpha/SourceLearning/tree/master/wsgiref-0.1.2)。
+wsgiref 源代码可以在 [pypi wsgiref 0.1.2](https://pypi.python.org/pypi/wsgiref) 下载。另外，我在阅读的过程中作了大量注释，包含模块介绍，调用层次关系，demo的运行结果，等 等，还包含了阅读过程中制作的思维导图。GitHub地址[注释版wsgiref](https://github.com/shnnosuke/SourceLearning/tree/master/wsgiref-0.1.2)。
 
 ### 结构
 
