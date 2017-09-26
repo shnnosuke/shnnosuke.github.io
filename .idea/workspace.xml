@@ -2,43 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b3619df-4a62-48a3-a756-f1029d922480" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/shnnosuke.github.io.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/zhangxingong.xml" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2010\09\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2013\10\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2013\11\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2014\01\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2014\02\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2014\03\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2014\04\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2014\05\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2014\07\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\2014\08\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\c语言\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\java\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\工具\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\思想\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\技术\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\操作系统\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\源代码阅读\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\生活\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\科研\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\英语\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\虚拟机\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\计算机系统\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\设计模式\index.html" afterPath="" />
-      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\categories\读书\index.html" afterPath="" />
+      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_posts\2017-09-26-test.markdown" afterPath="" />
+      <change type="DELETED" beforePath="D:\Java\Dev_Doc\Project\Java\sys\shnnosuke.github.io\_site\操作系统\2017\09\26\test.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_TestFrame.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_TestFrame.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_intro.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_intro.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_testRedirect.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_testRedirect.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_testUppercaseMethods.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_testUppercaseMethods.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_testreloader.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/Application_testreloader.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/18/blog_arch.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/18/blog_arch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/c语言/计算机系统/2013/10/25/charpointerarray.html" afterPath="$PROJECT_DIR$/_site/技术/c语言/计算机系统/2013/10/25/charpointerarray.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/设计模式/2014/07/27/facade.html" afterPath="$PROJECT_DIR$/_site/技术/设计模式/2014/07/27/facade.html" />
@@ -48,9 +18,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/21/gmodules_arch.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/21/gmodules_arch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/科研/2014/03/14/hd-mm.html" afterPath="$PROJECT_DIR$/_site/科研/2014/03/14/hd-mm.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/科研/2014/03/07/history-of-data-race-free.html" afterPath="$PROJECT_DIR$/_site/科研/2014/03/07/history-of-data-race-free.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/page10/index.html" afterPath="$PROJECT_DIR$/_site/page10/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/page11/index.html" afterPath="$PROJECT_DIR$/_site/page11/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/page12/index.html" afterPath="$PROJECT_DIR$/_site/page12/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/page2/index.html" afterPath="$PROJECT_DIR$/_site/page2/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/page3/index.html" afterPath="$PROJECT_DIR$/_site/page3/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/page4/index.html" afterPath="$PROJECT_DIR$/_site/page4/index.html" />
@@ -76,7 +46,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/英语/2014/04/20/learn-english-789.html" afterPath="$PROJECT_DIR$/_site/英语/2014/04/20/learn-english-789.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/工具/2013/10/24/markdonnote.html" afterPath="$PROJECT_DIR$/_site/工具/2013/10/24/markdonnote.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/科研/2014/03/14/mm-verify.html" afterPath="$PROJECT_DIR$/_site/科研/2014/03/14/mm-verify.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/monthly_archive.html" afterPath="$PROJECT_DIR$/_layouts/monthly_archive.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/生活/2014/02/21/no-useless-insistance.html" afterPath="$PROJECT_DIR$/_site/生活/2014/02/21/no-useless-insistance.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/设计模式/2014/07/25/observer.html" afterPath="$PROJECT_DIR$/_site/技术/设计模式/2014/07/25/observer.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/2013/11/01/pypkg.html" afterPath="$PROJECT_DIR$/_site/技术/2013/11/01/pypkg.html" />
@@ -90,8 +59,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/java/源代码阅读/2014/05/26/read-openjdk-src-TreeMap.html" afterPath="$PROJECT_DIR$/_site/技术/java/源代码阅读/2014/05/26/read-openjdk-src-TreeMap.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/java/源代码阅读/2014/05/27/read-openjdk-src.html" afterPath="$PROJECT_DIR$/_site/技术/java/源代码阅读/2014/05/27/read-openjdk-src.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/设计模式/2014/07/27/singleton.html" afterPath="$PROJECT_DIR$/_site/技术/设计模式/2014/07/27/singleton.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.xml" afterPath="$PROJECT_DIR$/sitemap.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/sitemap.xml" afterPath="$PROJECT_DIR$/_site/sitemap.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/skeleton_arch.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/14/skeleton_arch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/c语言/计算机系统/2014/04/21/static-in-c.html" afterPath="$PROJECT_DIR$/_site/技术/c语言/计算机系统/2014/04/21/static-in-c.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/工具/2014/02/28/terminal-shell.html" afterPath="$PROJECT_DIR$/_site/工具/2014/02/28/terminal-shell.html" />
@@ -99,6 +66,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/科研/2014/03/06/think-of-data-race-free.html" afterPath="$PROJECT_DIR$/_site/科研/2014/03/06/think-of-data-race-free.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/源代码阅读/2013/11/17/todolist_arch.html" afterPath="$PROJECT_DIR$/_site/源代码阅读/2013/11/17/todolist_arch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/思想/2013/10/26/whyds.html" afterPath="$PROJECT_DIR$/_site/思想/2013/10/26/whyds.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/操作系统/2010/09/17/write-your-own-os.html" afterPath="$PROJECT_DIR$/_site/操作系统/2010/09/17/write-your-own-os.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/思想/2014/01/13/write_high_quality_program.html" afterPath="$PROJECT_DIR$/_site/思想/2014/01/13/write_high_quality_program.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/技术/2014/01/26/wsgi-intro.html" afterPath="$PROJECT_DIR$/_site/技术/2014/01/26/wsgi-intro.html" />
@@ -123,31 +91,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2017-09-26-test.markdown" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2017-09-26-test.markdown">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.16">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Makefile" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Makefile">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.bat" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/deploy.bat">
+      <file leaf-file-name="2017-09-26-deploy-myself-blog.markdown" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2017-09-26-deploy-myself-blog.markdown">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.024111675">
-              <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_site/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-26.464285">
+              <caret line="63" column="15" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sitemap.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_site/sitemap.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9114391">
+              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2014-08-17-java-memory-model.markdown" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2014-08-17-java-memory-model.markdown">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -160,16 +148,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="source" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/_layouts/default.html" />
-        <option value="$PROJECT_DIR$/_posts/2013-11-21-gmodules_arch.md" />
         <option value="$PROJECT_DIR$/_posts/2014-01-24-wsgiref-src-intro.md" />
         <option value="$PROJECT_DIR$/_posts/2014-01-26-wsgi-intro.md" />
         <option value="$PROJECT_DIR$/_posts/2014-04-28-get-bci-by-jvmti.markdown" />
@@ -209,15 +194,18 @@
         <option value="$PROJECT_DIR$/_site/page7/index.html" />
         <option value="$PROJECT_DIR$/_site/page8/index.html" />
         <option value="$PROJECT_DIR$/_site/page9/index.html" />
-        <option value="$PROJECT_DIR$/_site/sitemap.xml" />
         <option value="$PROJECT_DIR$/_site/工具/2013/10/24/markdonnote.html" />
         <option value="$PROJECT_DIR$/_site/工具/2014/02/15/github-jekyll-markdown.html" />
         <option value="$PROJECT_DIR$/sitemap.xml" />
         <option value="$PROJECT_DIR$/_plugins/gen_archives.rb" />
         <option value="$PROJECT_DIR$/_layouts/category_archive.html" />
         <option value="$PROJECT_DIR$/_config.yml" />
-        <option value="$PROJECT_DIR$/_site/index.html" />
         <option value="$PROJECT_DIR$/deploy.bat" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/_posts/2017-09-26-test.markdown" />
+        <option value="$PROJECT_DIR$/_posts/2017-09-26-deploy-myself-blog.markdown" />
+        <option value="$PROJECT_DIR$/_site/index.html" />
+        <option value="$PROJECT_DIR$/_site/sitemap.xml" />
       </list>
     </option>
   </component>
@@ -282,7 +270,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="web.server" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -379,22 +367,49 @@
       <option name="project" value="LOCAL" />
       <updated>1506066288790</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="搭建个人博客过程">
+      <created>1506420177532</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1506420177532</updated>
+    </task>
+    <task id="LOCAL-00003" summary="搭建个人博客过程">
+      <created>1506420246426</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1506420246426</updated>
+    </task>
+    <task id="LOCAL-00004" summary="搭建个人博客过程">
+      <created>1506420519853</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1506420519853</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897863" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32779098" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32897863" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26213592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26213592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32147095" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -420,282 +435,106 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改用户名" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改用户名" />
+    <MESSAGE value="搭建个人博客过程" />
+    <option name="LAST_COMMIT_MESSAGE" value="搭建个人博客过程" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_site/page10/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="937" column="22" selection-start-line="937" selection-start-column="22" selection-end-line="937" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page11/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="958" column="22" selection-start-line="958" selection-start-column="22" selection-end-line="958" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page2/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="796" column="22" selection-start-line="796" selection-start-column="22" selection-end-line="796" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page3/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="973" column="22" selection-start-line="973" selection-start-column="22" selection-end-line="973" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page4/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="792" column="22" selection-start-line="792" selection-start-column="22" selection-end-line="792" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page5/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="956" column="22" selection-start-line="956" selection-start-column="22" selection-end-line="956" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page6/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="900" column="22" selection-start-line="900" selection-start-column="22" selection-end-line="900" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page7/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="881" column="22" selection-start-line="881" selection-start-column="22" selection-end-line="881" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page8/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="810" column="22" selection-start-line="810" selection-start-column="22" selection-end-line="810" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/page9/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="1120" column="22" selection-start-line="1120" selection-start-column="22" selection-end-line="1120" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/工具/2013/10/24/markdonnote.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="749" column="22" selection-start-line="749" selection-start-column="22" selection-end-line="749" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/工具/2014/02/15/github-jekyll-markdown.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21501273">
-          <caret line="546" column="29" selection-start-line="546" selection-start-column="29" selection-end-line="546" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/google_analytics.ext">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/工具/c语言/2014/02/22/gcc-intro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="39" column="23" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/categories.ext">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/comments.ext">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/archives.ext">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/sitemap.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09632446">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sitemap.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.464286">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_plugins/gen_archives.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.64">
-          <caret line="102" column="29" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_plugins/gen_categories.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36121672">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_plugins/category_archive_plugin.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_plugins/monthly_archive_plugin.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_plugins/monthly_archive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19363058">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/monthly_archive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31464967">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/category_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41146496">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.4907749">
+          <caret line="21" column="69" selection-start-line="21" selection-start-column="69" selection-end-line="21" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.23370233">
           <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_site/index.html">
+    <entry file="file://$PROJECT_DIR$/_posts/2013-10-24-markdonnote.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.677707">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/科研/2014/08/17/java-memory-model.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3070064">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-10-26-whyds.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="5.063452">
+          <caret line="210" column="13" selection-start-line="210" selection-start-column="13" selection-end-line="210" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_posts/2010-09-17-write-your-own-os.markdown">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024111675">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2017-09-26-test.markdown">
+    <entry file="file://$PROJECT_DIR$/_posts/2014-05-28-read-openjdk-src-LinkedList.markdown">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.16">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-07-11-java-io-read-bytes.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-05-27-read-openjdk-src.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.96">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-05-05-learn-english-10-11.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-04-28-get-bci-by-jvmti.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-05-05-learn-english-1011.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-05-12-learn-english-12.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2014-01-26-wsgi-intro.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9403553">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -703,15 +542,47 @@
     <entry file="file://$PROJECT_DIR$/Makefile">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy.bat">
+    <entry file="file://$PROJECT_DIR$/_posts/2014-08-17-java-memory-model.markdown">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.024111675">
-          <caret line="1" column="21" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2017-09-26-deploy-myself-blog.markdown">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_site/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.464285">
+          <caret line="63" column="15" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_site/sitemap.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9114391">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
           <folding />
         </state>
       </provider>
