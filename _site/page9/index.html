@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -536,6 +550,71 @@
     
     <li>
       <div class="post-title">
+        <a href="/%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/2014/01/24/wsgiref-src-intro.html"> wsgiref 源代码分析</a> </br>
+      </div>
+
+      <div class="post-info">
+        <ol>
+          <li class="post-time">2014-01-24</li> 
+          <li class="post-category"> 
+           源代码阅读
+          </li>
+        </ol>
+      </div>
+
+      <div class="post-preview">
+        <h1>wsgiref 源代码分析</h1>
+
+<h2>wsgiref</h2>
+
+<p><a href="http://docs.python.org/2/library/wsgiref.html">wsgiref</a> 是Python标准库给出的 <a href="http://www.python.org/dev/peps/pep-0333/">WSGI</a> 的参考实现。</p>
+
+<p>WSGI是Python Web 开发中为服务器程序和应用程序设定的标准，满足这一标准的服务器程序和应用程序可以配合使用。我在上一篇博文《<a href="http://blog.csdn.net/on_1y/article/details/18803563">WSGI简介</a>》中对此有详细的介绍。在阅读wsgiref源代码之前，一定要对WSGI有一定了解。</p>
+
+<p>WSGI 在 <a href="http://www.python.org/dev/peps/pep-0333/">PEP 333</a> 中描述，但是只靠阅读PEP 333 可能在理解上还是不够深入，所以阅读官方给出的参考实现是很有必要的。阅读完这份源代码后，不仅有利于对WSGI的理解。而且会让你对服务端程序如何对客户端请求有一个直观的理解，从相对底层的socket监听请求，到上层对HTTP请求的处理。</p>
+
+<p>当然，这只是对WSGI的参考实现，目的是为了描述清楚WSGI，而不是真正用在产品中。如果想对Python Web开发中服务器端的实现有更广泛，更深入的理解，需要进一步阅读Python常用框架的源代码。</p>
+
+<h2>wsgiref 源代码分析</h2>
+
+<p>wsgiref 源代码可以在 <a href="https://pypi.python.org/pypi/wsgiref">pypi wsgiref 0.1.2</a> 下载。另外，我在阅读的过程中作了大量注释，包含模块介绍，调用层次关系，demo的运行结果，等 等，还包含了阅读过程中制作的思维导图。GitHub地址<a href="https://github.com/shnnosuke/SourceLearning/tree/master/wsgiref-0.1.2">注释版wsgiref</a>。</p>
+
+<h3>结构</h3>
+
+<p><img src="/assets/blog-images/wsgiref.bmp" alt="wsgiref"></p>
+
+<p>上图描述了wsgiref的所有模块及模块间的调用关系，可以看出，wsgiref有以下模块：</p>
+
+<ul>
+<li><p>simple_server<br>
+这一模块实现了一个简单的 HTTP 服务器，并给出了一个简单的 demo，运行：</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">python simple_server.py
+</code></pre></div></li>
+</ul>
+
+<p>会启动这个demo，运行一次请求，并把这次请求中涉及到的环境变量在浏览器中显示出来。</p>
+
+<ul>
+<li>handlers<br>
+simple_server模块将HTTP服务器分成了 Server 部分和Handler部分，前者负责接收请求，后者负责具体的处理，
+其中Handler部分主要在handlers中实现。</li>
+<li>headers<br>
+这一模块主要是为HTTP协议中header部分建立数据结构。</li>
+<li>util<br>
+这一模块包含了一些工具函数，主要用于对环境变量，URL的处理。</li>
+<li>validate<br>
+这一模块提供了一个验证工具，可以用于验证你的实现是否符合WSGI标准。</li>
+</ul>
+
+<h3>simple_server</h3>
+ 
+        <a href="/%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/2014/01/24/wsgiref-src-intro.html"> Read More ... </a> </br>
+      </div>
+
+    </li>
+    
+    <li>
+      <div class="post-title">
         <a href="/%E6%80%9D%E6%83%B3/2014/01/13/write_high_quality_program.html"> 如何编写高质量的程序</a> </br>
       </div>
 
@@ -598,7 +677,7 @@
 一些模块，还有一些评分，打标签等等功能。(不过这网站挺奇怪的。。。)</p>
 
 <h2>目录树</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">src/
+<div class="highlight"><pre><code class="language-text" data-lang="text">src/
     ├── application.py
     ├── forum.py
     ├── config_example.py
@@ -651,75 +730,76 @@
 <h2>application 模块</h2>
 
 <h3>application.py</h3>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c">#!/usr/bin/env python</span>
-<span class="c"># Author: Alex Ksikes </span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">
+#!/usr/bin/env python
+# Author: Alex Ksikes 
 
-<span class="c"># TODO: </span>
-<span class="c"># - setup SPF for sendmail and </span>
-<span class="c"># - emailerrors should be sent from same domain</span>
-<span class="c"># - clean up schema.sql</span>
-<span class="c"># - because of a bug in webpy unicode search fails (see models/sql_search.py)</span>
+# TODO: 
+# - setup SPF for sendmail and 
+# - emailerrors should be sent from same domain
+# - clean up schema.sql
+# - because of a bug in webpy unicode search fails (see models/sql_search.py)
 
-<span class="kn">import</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">config</span>
-<span class="kn">import</span> <span class="nn">app.controllers</span>
+import web
+import config
+import app.controllers
 
-<span class="kn">from</span> <span class="nn">app.helpers</span> <span class="kn">import</span> <span class="n">custom_error</span>
+from app.helpers import custom_error
 
-<span class="kn">import</span> <span class="nn">forum</span>
+import forum
 
-<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>        
-    <span class="c"># front page</span>
-    <span class="s">&#39;/&#39;</span><span class="p">,</span>                                    <span class="s">&#39;app.controllers.base.index&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/page/([0-9]+)/&#39;</span><span class="p">,</span>                      <span class="s">&#39;app.controllers.base.list&#39;</span><span class="p">,</span>
+urls = (        
+    # front page
+    &#39;/&#39;,                                    &#39;app.controllers.base.index&#39;,
+    &#39;/page/([0-9]+)/&#39;,                      &#39;app.controllers.base.list&#39;,
 
-    <span class="c"># view, add a comment, vote</span>
-    <span class="s">&#39;/module/([0-9]+)/&#39;</span><span class="p">,</span>                    <span class="s">&#39;app.controllers.module.show&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/module/([0-9]+)/comment/&#39;</span><span class="p">,</span>            <span class="s">&#39;app.controllers.module.comment&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/module/([0-9]+)/vote/&#39;</span><span class="p">,</span>               <span class="s">&#39;app.controllers.module.vote&#39;</span><span class="p">,</span>
+    # view, add a comment, vote
+    &#39;/module/([0-9]+)/&#39;,                    &#39;app.controllers.module.show&#39;,
+    &#39;/module/([0-9]+)/comment/&#39;,            &#39;app.controllers.module.comment&#39;,
+    &#39;/module/([0-9]+)/vote/&#39;,               &#39;app.controllers.module.vote&#39;,
 
-    <span class="c"># submit a module</span>
-    <span class="s">&#39;/submit/&#39;</span><span class="p">,</span>                             <span class="s">&#39;app.controllers.submit.submit&#39;</span><span class="p">,</span>
+    # submit a module
+    &#39;/submit/&#39;,                             &#39;app.controllers.submit.submit&#39;,
 
-    <span class="c"># view author page</span>
-    <span class="s">&#39;/author/(.*?)/&#39;</span><span class="p">,</span>                       <span class="s">&#39;app.controllers.author.show&#39;</span><span class="p">,</span>      
+    # view author page
+    &#39;/author/(.*?)/&#39;,                       &#39;app.controllers.author.show&#39;,      
 
-    <span class="c"># search browse by tag name</span>
-    <span class="s">&#39;/search/&#39;</span><span class="p">,</span>                             <span class="s">&#39;app.controllers.search.search&#39;</span><span class="p">,</span>    
-    <span class="s">&#39;/tag/(.*?)/&#39;</span><span class="p">,</span>                          <span class="s">&#39;app.controllers.search.list_by_tag&#39;</span><span class="p">,</span>
+    # search browse by tag name
+    &#39;/search/&#39;,                             &#39;app.controllers.search.search&#39;,    
+    &#39;/tag/(.*?)/&#39;,                          &#39;app.controllers.search.list_by_tag&#39;,
 
-    <span class="c"># view tag clouds</span>
-    <span class="s">&#39;/tags/&#39;</span><span class="p">,</span>                               <span class="s">&#39;app.controllers.cloud.tag_cloud&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/authors/&#39;</span><span class="p">,</span>                            <span class="s">&#39;app.controllers.cloud.author_cloud&#39;</span><span class="p">,</span>
+    # view tag clouds
+    &#39;/tags/&#39;,                               &#39;app.controllers.cloud.tag_cloud&#39;,
+    &#39;/authors/&#39;,                            &#39;app.controllers.cloud.author_cloud&#39;,
 
-    <span class="c"># table modules</span>
-    <span class="s">&#39;/modules/(?:by-(.*?)/)?([0-9]+)?/?&#39;</span><span class="p">,</span>   <span class="s">&#39;app.controllers.all_modules.list_by&#39;</span><span class="p">,</span>
+    # table modules
+    &#39;/modules/(?:by-(.*?)/)?([0-9]+)?/?&#39;,   &#39;app.controllers.all_modules.list_by&#39;,
 
-    <span class="c"># static pages</span>
-    <span class="s">&#39;/feedback/&#39;</span><span class="p">,</span>                           <span class="s">&#39;app.controllers.feedback.send&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/about/&#39;</span><span class="p">,</span>                              <span class="s">&#39;app.controllers.base.about&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/help/&#39;</span><span class="p">,</span>                               <span class="s">&#39;app.controllers.base.help&#39;</span><span class="p">,</span>
+    # static pages
+    &#39;/feedback/&#39;,                           &#39;app.controllers.feedback.send&#39;,
+    &#39;/about/&#39;,                              &#39;app.controllers.base.about&#39;,
+    &#39;/help/&#39;,                               &#39;app.controllers.base.help&#39;,
 
-    <span class="c"># let lighttpd handle in production</span>
-    <span class="s">&#39;/(?:css|img|js|rss)/.+&#39;</span><span class="p">,</span>               <span class="s">&#39;app.controllers.public.public&#39;</span><span class="p">,</span>
+    # let lighttpd handle in production
+    &#39;/(?:css|img|js|rss)/.+&#39;,               &#39;app.controllers.public.public&#39;,
 
-    <span class="c"># canonicalize /urls to /urls/</span>
-    <span class="s">&#39;/(.*[^/])&#39;</span><span class="p">,</span>                            <span class="s">&#39;app.controllers.public.redirect&#39;</span><span class="p">,</span>
+    # canonicalize /urls to /urls/
+    &#39;/(.*[^/])&#39;,                            &#39;app.controllers.public.redirect&#39;,
 
-    <span class="c"># mini forum app</span>
-    <span class="s">&#39;/forum&#39;</span><span class="p">,</span>                               <span class="n">forum</span><span class="o">.</span><span class="n">app</span><span class="p">,</span>    
+    # mini forum app
+    &#39;/forum&#39;,                               forum.app,    
 
-    <span class="s">&#39;/hello/(.*)&#39;</span><span class="p">,</span>                            <span class="s">&#39;hello&#39;</span><span class="p">,</span>
+    &#39;/hello/(.*)&#39;,                            &#39;hello&#39;,
 
-    <span class="c"># site admin app</span>
-<span class="c">#    &#39;/admin&#39;,                              admin.app,    </span>
-<span class="p">)</span>
+    # site admin app
+#    &#39;/admin&#39;,                              admin.app,    
+)
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">application</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
-<span class="n">custom_error</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+app = web.application(urls, globals())
+custom_error.add(app)
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+if __name__ == &quot;__main__&quot;:
+    app.run()
 </code></pre></div>
 <p>可以看出，这是 application 部分的入口，这个模块仅仅是定义了各个请求的处理方式，
 并完成程序的启动，所有的实现均不在这里出现，而是通过 <code>import</code> 导入，特别需要
@@ -733,7 +813,7 @@
 下了。</p>
 
 <h3>app 模块</h3>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">app/
+<div class="highlight"><pre><code class="language-text" data-lang="text">app/
     ├── models # 数据模块，MVC中的 M
     ├── views # 显示模块，MVC中的 V
     ├── controllers # 控制模块，MVC中的 C
@@ -742,7 +822,7 @@
 4 directories
 </code></pre></div>
 <h3>controllers 模块</h3>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">controllers/
+<div class="highlight"><pre><code class="language-text" data-lang="text">controllers/
     ├── base.py         # 对基本页面，如网站主页,关于网页，帮助等的处理
     ├── all_modules.py  # 显示全部模块
     ├── module.py       # 对模块页面的处理
@@ -759,7 +839,7 @@
 <p>实现过程中，调用 models 模块对数据操作，再送入 views 模块通过模板引擎显示数据内容。</p>
 
 <h3>models 模块</h3>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">models/
+<div class="highlight"><pre><code class="language-text" data-lang="text">models/
     ├── comments.py     # 对评论数据的处理
     ├── modules.py      # 对模块数据的处理
     ├── rss.py          # 对 rss 订阅的处理
@@ -795,7 +875,7 @@
         <h1>web.py 项目之 blog</h1>
 
 <h2>目录树</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">src/
+<div class="highlight"><pre><code class="language-text" data-lang="text">src/
 ├── blog.py
 ├── model.py
 ├── schema.sql
@@ -818,19 +898,20 @@
 <h3>控制模块</h3>
 
 <p>控制模块包括 blog.py</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="sd">&quot;&quot;&quot; Basic blog using webpy 0.3 &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">model</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">&quot;&quot;&quot; Basic blog using webpy 0.3 &quot;&quot;&quot;
+import web
+import model
 
-<span class="c">### Url mappings</span>
+### Url mappings
 
-<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;Index&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/view/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;View&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/new&#39;</span><span class="p">,</span> <span class="s">&#39;New&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/delete/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;Delete&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/edit/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;Edit&#39;</span><span class="p">,</span>
-<span class="p">)</span>
+urls = (
+    &#39;/&#39;, &#39;Index&#39;,
+    &#39;/view/(\d+)&#39;, &#39;View&#39;,
+    &#39;/new&#39;, &#39;New&#39;,
+    &#39;/delete/(\d+)&#39;, &#39;Delete&#39;,
+    &#39;/edit/(\d+)&#39;, &#39;Edit&#39;,
+)
+
 </code></pre></div> 
         <a href="/%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/2013/11/18/blog_arch.html"> Read More ... </a> </br>
       </div>
@@ -855,7 +936,7 @@
         <h1>web.py 项目之 todolist</h1>
 
 <h2>目录树</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.
+<div class="highlight"><pre><code class="language-text" data-lang="text">.
 └── src
     ├── model.py
     ├── schema.sql
@@ -877,173 +958,20 @@
 <h3>控制模块</h3>
 
 <p>控制模块只有todo.py</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="sd">&quot;&quot;&quot; Basic todo list using webpy 0.3 &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">model</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">
+&quot;&quot;&quot; Basic todo list using webpy 0.3 &quot;&quot;&quot;
+import web
+import model
 
-<span class="c">### Url mappings</span>
+### Url mappings
 
-<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;Index&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/del/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;Delete&#39;</span>
-<span class="p">)</span>
+urls = (
+    &#39;/&#39;, &#39;Index&#39;,
+    &#39;/del/(\d+)&#39;, &#39;Delete&#39;
+)
+
 </code></pre></div> 
         <a href="/%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/2013/11/17/todolist_arch.html"> Read More ... </a> </br>
-      </div>
-
-    </li>
-    
-    <li>
-      <div class="post-title">
-        <a href="/%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/2013/11/14/skeleton_arch.html"> web.py 项目架构分析之 skeleton</a> </br>
-      </div>
-
-      <div class="post-info">
-        <ol>
-          <li class="post-time">2013-11-14</li> 
-          <li class="post-category"> 
-           源代码阅读
-          </li>
-        </ol>
-      </div>
-
-      <div class="post-preview">
-        <h1>web.py 项目之 skeleton</h1>
-
-<p>skeleton 是 web.py 官网上给出的一个最简单的项目结构示例。</p>
-
-<h2>目录树</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.
-└── src  
-    ├── code.py  
-    ├── config.py  
-    ├── db.py  
-    ├── sql
-    │   └── tables.sql
-    ├── templates
-    │   ├── base.html
-    │   ├── item.html
-    │   └── listing.html
-    └── view.py
-
-3 directories, 9 files
-</code></pre></div>
-<h2>结构分析</h2>
-
-<h3>控制模块</h3>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c">#code.py</span>
-
-<span class="kn">import</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">view</span><span class="o">,</span> <span class="nn">config</span>
-<span class="kn">from</span> <span class="nn">view</span> <span class="kn">import</span> <span class="n">render</span>
-
-<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;index&#39;</span>
-<span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">index</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">base</span><span class="p">(</span><span class="n">view</span><span class="o">.</span><span class="n">listing</span><span class="p">())</span>
-
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">application</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">internalerror</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">debugerror</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre></div>
-<p><code>code</code> 模块作为入口:</p>
-
-<ul>
-<li>app 的创建与启动</li>
-<li>url　与　处理类的映射与处理入口</li>
-</ul>
-
-<p>但是，具体的处理并不在这里实现。而是放在了 <code>view</code> 模块中。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">这一模块是MVC中的C吗？
-</code></pre></div>
-<h3>显示模块</h3>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c">#view.py</span>
-
-<span class="kn">import</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">db</span>
-<span class="kn">import</span> <span class="nn">config</span>
-
-<span class="n">t_globals</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-  <span class="n">datestr</span><span class="o">=</span><span class="n">web</span><span class="o">.</span><span class="n">datestr</span><span class="p">,</span>
-<span class="p">)</span>
-<span class="n">render</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;templates/&#39;</span><span class="p">,</span> <span class="n">cache</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">cache</span><span class="p">,</span> 
-    <span class="nb">globals</span><span class="o">=</span><span class="n">t_globals</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">_keywords</span><span class="p">[</span><span class="s">&#39;globals&#39;</span><span class="p">][</span><span class="s">&#39;render&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">render</span>
-
-<span class="k">def</span> <span class="nf">listing</span><span class="p">(</span>\<span class="o">**</span><span class="n">k</span><span class="p">):</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">listing</span><span class="p">(</span>\<span class="o">**</span><span class="n">k</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">listing</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-</code></pre></div>
-<p>从这里可以看出　<code>view</code> 模块</p>
-
-<ul>
-<li>与模板关联 </li>
-<li>从数据库中取数据，然后发给模板</li>
-</ul>
-
-<p>我们再来看看模板:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="c">&lt;!--</span>
-<span class="c">    templates/base.html</span>
-<span class="c">--&gt;</span>
-
-$def with (page, title=None)
-<span class="nt">&lt;html&gt;&lt;head&gt;</span>
-<span class="nt">&lt;title&gt;</span>my site\
-$if title: : $title\
-<span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;&lt;body&gt;</span>
-<span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>my site<span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
-$:page   
-<span class="nt">&lt;/body&gt;&lt;/html&gt;</span>
-</code></pre></div>
-<p><code>base.html</code> 是所有模块的公共部分，每个模块只需要提供
-它的 <code>page</code> ，即内容就可以了。</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="c">&lt;!--</span>
-<span class="c">    templates/listing.html</span>
-<span class="c">--&gt;</span>
-
-$def with (items)
-
-$for item in items:
-    $:render.item(item)
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">这一模块是MVC中的V吗
-</code></pre></div>
-<h3>数据操作</h3>
-
-<p>数据库操作分三部分</p>
-
-<ul>
-<li>sql/tables.sql 数据库表定义</li>
-<li>config.py 数据库连接</li>
-<li>db.py 数据库操作</li>
-</ul>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/* tables.sql */
-CREATE TABLE items (
-    id serial primary key,
-    author_id int references users,
-    body text,
-    created timestamp default current_timestamp 
-);
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">#config.py
-
-import web
-DB = web.database(dbn=&#39;mysql&#39;, db=&#39;skeleton&#39;, user=&#39;root&#39;, pw=&#39;xx&#39;)
-cache = False
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text"># db.py
-import config
-
-def listing(\**k):
-    return config.DB.select(&#39;items&#39;, **k)
-</code></pre></div><div class="highlight"><pre><code class="text language-text" data-lang="text">这是MVC中的M吗
-</code></pre></div>
-<p>这是 web.py 中最基本的一个项目结构。应该是使用的MVC设计模式。但是
-因为程序本身不大，还体会不到 MVC 的好处。</p>
- 
-        <a href="/%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/2013/11/14/skeleton_arch.html"> Read More ... </a> </br>
       </div>
 
     </li>
@@ -1100,6 +1028,10 @@ def listing(\**k):
   
     
       <a href="/page11">11</a>
+    
+  
+    
+      <a href="/page12">12</a>
     
   
 

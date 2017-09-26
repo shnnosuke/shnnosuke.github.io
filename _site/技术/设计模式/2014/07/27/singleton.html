@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -551,19 +565,19 @@
 <ul>
 <li>示例</li>
 </ul>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">singleton</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">class Singleton {
+    private static Singleton singleton;
 
-    <span class="kd">private</span> <span class="nf">Singleton</span><span class="o">()</span> <span class="o">{</span>
-    <span class="o">}</span>
+    private Singleton() {
+    }
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">singleton</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">singleton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
-        <span class="o">}</span>
-        <span class="k">return</span> <span class="n">singleton</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    public static Singleton getInstance() {
+        if (singleton == null) {
+            singleton = new Singleton();
+        }
+        return singleton;
+    }
+}
 </code></pre></div>
 <p>这是单例的经典使用方式：</p>
 
@@ -580,30 +594,31 @@
 <p>在 Tomcat 中，就有一个单例模式，它是 <code>org.apache.catalina.tribes.util.StringManager</code> 类。在 Tomcat 中，会有许多地方需要对错误消息进行处理。我们使用 <code>StringManager</code> 类来管理这些错误消息。</p>
 
 <p>错误消息首先不能硬编码到代码中，否则需要提供国际化支持时，就会很痛苦。错误消息需要定义在配置文件中。Tomcat 为每个包 (package) 都提供了三种语言的错误消息配置文件。每个包内都有很多类，我们没必要为每个类都生成一个 <code>StringManager</code> 类，因为它们共享同一个配置文件。所以，一个包只需要一个 <code>StringManager</code> 对象就好了。我们怎么为一个包生成一个 <code>StringManager</code> 呢？ Tomcat 在 <code>StringManager</code> 内部保存着所有包的 <code>StringManager</code> 实例，你需要一个实例时，只需要提供包名，调用 <code>StringManager</code> 的相应方法，就会返回与此包名对应的 <code>StringManager</code> 实例。下面是相关的代码，一目了然。</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StringManager</span> <span class="o">{</span> 
+<div class="highlight"><pre><code class="language-java" data-lang="java">
+public class StringManager { 
 
-<span class="kd">private</span> <span class="nf">StringManager</span><span class="o">(</span><span class="n">String</span> <span class="n">packageName</span><span class="o">)</span> <span class="o">{</span>
-    <span class="o">...</span>
-<span class="o">}</span>
+private StringManager(String packageName) {
+    ...
+}
 
-<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Hashtable</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">StringManager</span><span class="o">&gt;</span> <span class="n">managers</span> <span class="o">=</span>
-<span class="k">new</span> <span class="n">Hashtable</span><span class="o">&lt;&gt;();</span>
+private static final Hashtable&lt;String, StringManager&gt; managers =
+new Hashtable&lt;&gt;();
 
-<span class="cm">/**</span>
-<span class="cm">* Get the StringManager for a particular package. If a manager for</span>
-<span class="cm">* a package already exists, it will be reused, else a new</span>
-<span class="cm">* StringManager will be created and returned.</span>
-<span class="cm">*</span>
-<span class="cm">* @param packageName The package name</span>
-<span class="cm">*/</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kd">synchronized</span> <span class="n">StringManager</span> <span class="nf">getManager</span><span class="o">(</span><span class="n">String</span> <span class="n">packageName</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">StringManager</span> <span class="n">mgr</span> <span class="o">=</span> <span class="n">managers</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">packageName</span><span class="o">);</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">mgr</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">mgr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringManager</span><span class="o">(</span><span class="n">packageName</span><span class="o">);</span>
-        <span class="n">managers</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">packageName</span><span class="o">,</span> <span class="n">mgr</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="n">mgr</span><span class="o">;</span>
-<span class="o">}</span>
+/**
+* Get the StringManager for a particular package. If a manager for
+* a package already exists, it will be reused, else a new
+* StringManager will be created and returned.
+*
+* @param packageName The package name
+*/
+public static final synchronized StringManager getManager(String packageName) {
+    StringManager mgr = managers.get(packageName);
+    if (mgr == null) {
+        mgr = new StringManager(packageName);
+        managers.put(packageName, mgr);
+    }
+    return mgr;
+}
 </code></pre></div>
 <p>使用了一个 <code>Hashtable</code> 来保存 <code>managers</code>，每次通过 <code>getManager</code> 方法，通过包名访问，如果访问不到，就为此包新生成一个 <code>StringManager</code> 实例。</p>
 

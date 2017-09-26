@@ -68,32 +68,8 @@
   <ul class="category-list">
       
             
-                <li style="background-color: #444">
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
                 <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li style="background-color: #444">
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -537,32 +551,32 @@
 <h3>application.py</h3>
 
 <p>对 application.py 的测试，调用命令：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">python test/application.py
+<div class="highlight"><pre><code class="language-text" data-lang="text">python test/application.py
 </code></pre></div>
 <p>程序入口依然会调用 <code>webtest.main()</code></p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">webtest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">if __name__ == &#39;__main__&#39;:
+    webtest.main()
 </code></pre></div>
 <p>再仔细观察 <code>webtest.main</code> 调用的 <code>web.test</code> 中的 <code>main</code>函数</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">suite</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">suite</span><span class="p">:</span>
-        <span class="n">main_module</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s">&#39;__main__&#39;</span><span class="p">)</span>
-        <span class="c"># allow command line switches</span>
-        <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">)]</span>
-        <span class="n">suite</span> <span class="o">=</span> <span class="n">module_suite</span><span class="p">(</span><span class="n">main_module</span><span class="p">,</span> <span class="n">args</span> <span class="ow">or</span> <span class="bp">None</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def main(suite=None):
+    if not suite:
+        main_module = __import__(&#39;__main__&#39;)
+        # allow command line switches
+        args = [a for a in sys.argv[1:] if not a.startswith(&#39;-&#39;)]
+        suite = module_suite(main_module, args or None)
 
-    <span class="n">result</span> <span class="o">=</span> <span class="n">runTests</span><span class="p">(</span><span class="n">suite</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">wasSuccessful</span><span class="p">())</span>
+    result = runTests(suite)
+    sys.exit(not result.wasSuccessful())
 </code></pre></div>
 <p>回顾一下 <code>module_suite</code>函数，</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">module_suite</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">classnames</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Makes a suite from a module.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">classnames</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">loadTestsFromNames</span><span class="p">(</span><span class="n">classnames</span><span class="p">,</span> <span class="n">module</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="s">&#39;suite&#39;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">module</span><span class="o">.</span><span class="n">suite</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">unittest</span><span class="o">.</span><span class="n">TestLoader</span><span class="p">()</span><span class="o">.</span><span class="n">loadTestsFromModule</span><span class="p">(</span><span class="n">module</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def module_suite(module, classnames=None):
+    &quot;&quot;&quot;Makes a suite from a module.&quot;&quot;&quot;
+    if classnames:
+        return unittest.TestLoader().loadTestsFromNames(classnames, module)
+    elif hasattr(module, &#39;suite&#39;):
+        return module.suite()
+    else:
+        return unittest.TestLoader().loadTestsFromModule(module)
 </code></pre></div>
 <p>与 <code>alltests.py</code> 不同，<code>application.py</code>中并没有 <code>suite</code>，
 所以直接进入第三分支。后面的流程就和之前讲的后半部分一致了。</p>

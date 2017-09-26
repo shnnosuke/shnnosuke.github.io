@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -552,26 +566,26 @@
 <li>头文件
 agent程序中，需要包含 <code>jvmti.h</code>头文件，才能使用JVMTI中提供的接口。</li>
 </ul>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#include &lt;jvmti.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">#include &lt;jvmti.h&gt;
 </code></pre></div>
 <ul>
-<li><p>基本事件
-和agent有关的两个基本事件是agent的启动与关闭，我们需要自己编写与启动与关闭相关的函数，这样，虚拟机才知道启动与关闭agent时，都需要做些什么。</p>
+<li>基本事件
+和agent有关的两个基本事件是agent的启动与关闭，我们需要自己编写与启动与关闭相关的函数，这样，虚拟机才知道启动与关闭agent时，都需要做些什么。</li>
+</ul>
 
 <p>与启动相关的函数有两个，如果你的agent在虚拟机处于<code>OnLoad</code>阶段时启动，会调用<code>Agent_OnLoad</code>函数，如果你的agent在虚拟机处于<code>Live</code>阶段时启动，会调用<code>Agent_OnAttach</code>函数。</p>
 
 <p>我的理解是，如果你的agent想要全程监视一个程序的运行，就编写<code>Agent_OnLoad</code>，并在启动虚拟机时指定agent。如果你的agent想获取一个已经在运行的虚拟机中程序的信息，就编写<code>Agent_OnAttach</code>。</p>
 
-<p>两个函数的原型如下：</p></li>
-</ul>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="n">JNIEXPORT</span> <span class="n">jint</span> <span class="n">JNICALL</span> 
-<span class="n">Agent_OnLoad</span><span class="p">(</span><span class="n">JavaVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">options</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">reserved</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="n">JNIEXPORT</span> <span class="n">jint</span> <span class="n">JNICALL</span> 
-<span class="n">Agent_OnAttach</span><span class="p">(</span><span class="n">JavaVM</span><span class="o">*</span> <span class="n">vm</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">options</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">reserved</span><span class="p">)</span>
+<p>两个函数的原型如下：</p>
+<div class="highlight"><pre><code class="language-c" data-lang="c">JNIEXPORT jint JNICALL 
+Agent_OnLoad(JavaVM *vm, char *options, void *reserved)
+</code></pre></div><div class="highlight"><pre><code class="language-c" data-lang="c">JNIEXPORT jint JNICALL 
+Agent_OnAttach(JavaVM* vm, char *options, void *reserved)
 </code></pre></div>
 <p>与agent关闭相关的函数是<code>Agent_OnUnload</code>，当agent要被关闭时，虚拟机会调用这个函数，函数原型为：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="n">JNIEXPORT</span> <span class="kt">void</span> <span class="n">JNICALL</span> 
-<span class="n">Agent_OnUnload</span><span class="p">(</span><span class="n">JavaVM</span> <span class="o">*</span><span class="n">vm</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">JNIEXPORT void JNICALL 
+Agent_OnUnload(JavaVM *vm)
 </code></pre></div>
 <ul>
 <li>程序基本框架</li>
@@ -580,46 +594,46 @@ agent程序中，需要包含 <code>jvmti.h</code>头文件，才能使用JVMTI�
 <p>主要的内容框架在<code>Agent_OnLoad</code>中编写：</p>
 
 <p>1 获取jvm环境</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cm">/* get env */</span>
-<span class="n">jvmtiEnv</span> <span class="o">*</span><span class="n">jvmti</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="n">jvmtiError</span> <span class="n">error</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">/* get env */
+jvmtiEnv *jvmti = NULL;
+jvmtiError error;
 
-<span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">jvm</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">GetEnv</span><span class="p">(</span><span class="n">jvm</span><span class="p">,</span> <span class="p">(</span><span class="kt">void</span> <span class="o">**</span><span class="p">)</span><span class="o">&amp;</span><span class="n">jvmti</span><span class="p">,</span> <span class="n">JVMTI_VERSION</span><span class="p">);</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">error</span> <span class="o">!=</span> <span class="n">JNI_OK</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Couldn&#39;t get JVMTI environment&quot;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">JNI_ERR</span><span class="p">;</span>
-<span class="p">}</span>
+error = (*jvm)-&gt;GetEnv(jvm, (void **)&amp;jvmti, JVMTI_VERSION);
+if (error != JNI_OK) {
+    fprintf(stderr, &quot;Couldn&#39;t get JVMTI environment&quot;);
+    return JNI_ERR;
+}
 </code></pre></div>
 <p>可以为同一个虚拟机指定多个agent，每个agent都有自己的环境，在指定agent行为前，首先要获取的就是环境信息，后面的操作都是针对这个环境的。另外，JVMTI中的函数都会返回错误代码，在调用函数后，需要检查返回值，以确定函数调用是否成功。不同的函数会返回不同类型的错误码，可自行参阅JVMTI的API。</p>
 
 <p>另外，需要注意，JVMTI程序可以使用C/C++编写，两者在调用函数时略有不同，上面的例子是用C编写，gcc编译。如果你使用C++编写，<code>GetEnv</code>需要这样调用：</p>
-<div class="highlight"><pre><code class="c++ language-c++" data-lang="c++"><span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="n">jvm</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">GetEnv</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">**&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">jvmti</span><span class="p">),</span> <span class="n">JVMTI_VERSION_1_1</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-c++" data-lang="c++">error = (jvm)-&gt;GetEnv(reinterpret_cast&lt;void**&gt;(&amp;jvmti), JVMTI_VERSION_1_1);
 </code></pre></div>
 <p>其它函数依次类推。 </p>
 
 <p>2 添加capabilities</p>
 
 <p>JVMTI中有很多事件，每个事件都对对应一些Capabilities，如果你想为此事件编写函数，就要开启相应的Capabilities，例如，我们想对 <code>JVMTI_EVENT_SINGLE_STEP</code> 事件编写函数，可以查到，需要开启<code>can_generate_single_step_events</code>：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cm">/* add capabilities */</span><span class="p">]</span>
-<span class="n">jvmtiCapabilities</span> <span class="n">capa</span><span class="p">;</span>
-<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">capa</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">jvmtiCapabilities</span><span class="p">));</span>
-<span class="n">capa</span><span class="p">.</span><span class="n">can_generate_single_step_events</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">jvmti</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">AddCapabilities</span><span class="p">(</span><span class="n">jvmti</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">capa</span><span class="p">);</span>
-<span class="n">check_jvmti_error</span><span class="p">(</span><span class="n">jvmti</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> \
-        <span class="s">&quot;Unable to get necessary JVMTI capabilities.&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">/* add capabilities */]
+jvmtiCapabilities capa;
+memset(&amp;capa, 0, sizeof(jvmtiCapabilities));
+capa.can_generate_single_step_events = 1;
+error = (*jvmti)-&gt;AddCapabilities(jvmti, &amp;capa);
+check_jvmti_error(jvmti, error, \
+        &quot;Unable to get necessary JVMTI capabilities.&quot;);
 </code></pre></div>
 <p>如果开启的Capabilities多于一个，不用声明多个<code>jvmtiCapabilities</code>变量，只需要使用类似</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="n">capa</span><span class="p">.</span><span class="n">can_generate_single_step_events</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">capa.can_generate_single_step_events = 1;
 </code></pre></div>
 <p>的方式指定就行。</p>
 
 <p>3 指定事件</p>
 
 <p>JVMTI编写的目的是，当虚拟机中一个事件发生时，调用我们为此事件编写的函数。所以我们需要指定哪个事件发生时，通知agent：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cm">/* set events */</span>
-<span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">jvmti</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">SetEventNotificationMode</span> \
-        <span class="p">(</span><span class="n">jvmti</span><span class="p">,</span> <span class="n">JVMTI_ENABLE</span><span class="p">,</span> <span class="n">JVMTI_EVENT_SINGLE_STEP</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
-<span class="n">check_jvmti_error</span><span class="p">(</span><span class="n">jvmti</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="s">&quot;Cannot set event notification&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">/* set events */
+error = (*jvmti)-&gt;SetEventNotificationMode \
+        (jvmti, JVMTI_ENABLE, JVMTI_EVENT_SINGLE_STEP, NULL);
+check_jvmti_error(jvmti, error, &quot;Cannot set event notification&quot;);
 </code></pre></div>
 <p>其中 <code>JVMTI_EVENT_SINGLE_STEP</code> 就是事件代码。</p>
 
@@ -630,7 +644,7 @@ agent程序中，需要包含 <code>jvmti.h</code>头文件，才能使用JVMTI�
 <p>4 设置回调函数</p>
 
 <p>我们还需要为事件指定回调函数，并自行编写回调函数，事件回调函数的接口是由JVMTI指定的，例如<code>JVMTI_EVENT_SINGLE_STEP</code>事件的回调函数原型：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">void JNICALL
+<div class="highlight"><pre><code class="language-text" data-lang="text">void JNICALL
 SingleStep(jvmtiEnv *jvmti_env,
             JNIEnv* jni_env,
             jthread thread,
@@ -638,31 +652,32 @@ SingleStep(jvmtiEnv *jvmti_env,
             jlocation location)
 </code></pre></div>
 <p>为事件指定回调函数的方法是：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="n">jvmtiEventCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">jvmtiEventCallbacks callbacks;
 
-<span class="cm">/* add callbacks */</span>
-<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
-<span class="n">callbacks</span><span class="p">.</span><span class="n">SingleStep</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">callbackSingleStep</span><span class="p">;</span>
-<span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">jvmti</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">SetEventCallbacks</span> \
-        <span class="p">(</span><span class="n">jvmti</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="p">(</span><span class="n">jint</span><span class="p">)</span><span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span> 
-<span class="n">check_jvmti_error</span><span class="p">(</span><span class="n">jvmti</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="s">&quot;Canot set jvmti callbacks&quot;</span><span class="p">);</span>
+/* add callbacks */
+memset(&amp;callbacks, 0, sizeof(callbacks));
+callbacks.SingleStep = &amp;callbackSingleStep;
+error = (*jvmti)-&gt;SetEventCallbacks \
+        (jvmti, &amp;callbacks, (jint)sizeof(callbacks)); 
+check_jvmti_error(jvmti, error, &quot;Canot set jvmti callbacks&quot;);
+
 </code></pre></div>
 <p>之后，我们需要自己编写 <code>callbackSingleStep</code>函数：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="kt">void</span> <span class="n">JNICALL</span>
-<span class="nf">callbackSingleStep</span><span class="p">(</span>
-    <span class="n">jvmtiEnv</span> <span class="o">*</span><span class="n">jvmti</span><span class="p">,</span> 
-    <span class="n">JNIEnv</span><span class="o">*</span> <span class="n">jni</span><span class="p">,</span> 
-    <span class="n">jthread</span> <span class="kr">thread</span><span class="p">,</span>
-    <span class="n">jmethodID</span> <span class="n">method</span><span class="p">,</span>
-    <span class="n">jlocation</span> <span class="n">location</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">void JNICALL
+callbackSingleStep(
+    jvmtiEnv *jvmti, 
+    JNIEnv* jni, 
+    jthread thread,
+    jmethodID method,
+    jlocation location) {
 
-<span class="p">}</span>
+}
 </code></pre></div>
 <h3>运行agent</h3>
 
 <p>运行agent，通过指定虚拟机参数来设定，例如运行<code>PossibleReordering</code>时：</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">java -classpath . <span class="se">\</span>
-    -agentpath:<span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/jvmagent/TraceAgent.so PossibleReordering
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">java -classpath . \
+    -agentpath:`pwd`/jvmagent/TraceAgent.so PossibleReordering
 </code></pre></div>
 <p>其中<code>TraceAgent.so</code>就是编译后生成的agent。</p>
 
@@ -673,86 +688,86 @@ SingleStep(jvmtiEnv *jvmti_env,
 <p>在JVMTI中，介绍单步事件(Single Step Event)时说，当一个线程到达一个新的位置(location)时，单步事件就会产生。单步事件使agent以虚拟机允许的最细粒度，跟踪线程执行。</p>
 
 <p>我们回到单步事件回调函数的原型：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="kt">void</span> <span class="n">JNICALL</span>
-<span class="n">SingleStep</span><span class="p">(</span><span class="n">jvmtiEnv</span> <span class="o">*</span><span class="n">jvmti_env</span><span class="p">,</span>
-            <span class="n">JNIEnv</span><span class="o">*</span> <span class="n">jni_env</span><span class="p">,</span>
-            <span class="n">jthread</span> <span class="kr">thread</span><span class="p">,</span>
-            <span class="n">jmethodID</span> <span class="n">method</span><span class="p">,</span>
-            <span class="n">jlocation</span> <span class="n">location</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">void JNICALL
+SingleStep(jvmtiEnv *jvmti_env,
+            JNIEnv* jni_env,
+            jthread thread,
+            jmethodID method,
+            jlocation location)
 </code></pre></div>
 <p>其中的 <code>location</code> 就是新指令的位置。</p>
 
 <p>我们首先来编写一个Java多线程程序，这个程序是 《Java并发编程实战》(Java Concurrency in Practice) 中的一个例子，我做了一点变形：</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.lang.Thread</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">import java.lang.Thread;
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">PossibleReordering</span> <span class="o">{</span>
-    <span class="kd">static</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
-    <span class="kd">static</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+public class PossibleReordering {
+    static int x = 0, y = 0;
+    static int a = 0, b = 0;
 
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InterruptedException</span> <span class="o">{</span>
+    public static void main(String[] args) throws InterruptedException {
 
-        <span class="n">Thread</span> <span class="n">one</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
+        Thread one = new Thread(new Runnable() {
+            public void run() {
+                a = 1;
+                x = b;
+            }
+        });
 
-        <span class="n">Thread</span> <span class="n">other</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span>
-            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
-                <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">y</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-                <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
-            <span class="o">}</span>
-        <span class="o">});</span>
+        Thread other = new Thread(new Runnable() {
+            public void run() {
+                b = 1;
+                y = a;
+                a = 1;
+                x = b;
+                a = 1;
+                x = b;
+                a = 1;
+                x = b;
+                a = 1;
+                x = b;
+                a = 1;
+                x = b;
+                a = 1;
+                x = b;
+                a = 1;
+                x = b;
+            }
+        });
 
 
-        <span class="n">one</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-        <span class="n">other</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
-        <span class="n">one</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
-        <span class="n">other</span><span class="o">.</span><span class="na">join</span><span class="o">();</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+        one.start();
+        other.start();
+        one.join();
+        other.join();
+    }
+}
 </code></pre></div>
 <p>给Thread other多加了一些语句，用以区分两个线程。</p>
 
 <p>这里有一个问题是，我们关心的其实只是两个线程的 <code>run</code>函数中指令的次序，而单步事件会在任何指令执行时，都调用回调函数，这就需要我们在回调函数中，只保留源代码中的两个线程的<code>run</code>函数中的指令的位置，其它的都过滤掉。</p>
 
 <p>我们可以使用JVMTI提供的 <code>GetMethodName</code> 来得到函数名，使用 <code>GetMethodDeclaringClass</code>得到类名，然后通过比较类名和函数名，只保留 <code>run</code>中的指令：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">jvmti</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">GetMethodName</span><span class="p">(</span> \
-        <span class="n">jvmti</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">method_name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">method_signature</span><span class="p">,</span> <span class="n">SKIP_GENERIC</span><span class="p">);</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">error = (*jvmti)-&gt;GetMethodName( \
+        jvmti, method, &amp;method_name, &amp;method_signature, SKIP_GENERIC);
 
-<span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">jvmti</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">GetMethodDeclaringClass</span><span class="p">(</span> \
-         <span class="n">jvmti</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">declaring_class</span><span class="p">);</span>
+error = (*jvmti)-&gt;GetMethodDeclaringClass( \
+         jvmti, method, &amp;declaring_class);
 
 
-<span class="k">if</span> <span class="p">(</span><span class="n">strncmp</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="s">&quot;run&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>   <span class="o">&amp;&amp;</span> \
-      <span class="n">strstr</span><span class="p">(</span><span class="n">class_signature</span><span class="p">,</span> <span class="s">&quot;PossibleReordering&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">thread_info</span><span class="p">.</span><span class="n">name</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">class_signature</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%lld</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">location</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s %lld:%lld</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">method_name</span><span class="p">,</span> <span class="n">s_location</span><span class="p">,</span> <span class="n">e_location</span><span class="p">);</span>
-      <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+if (strncmp(method_name, &quot;run&quot;, 4) == 0   &amp;&amp; \
+      strstr(class_signature, &quot;PossibleReordering&quot;) != NULL) {
+      printf(&quot;%s\t&quot;, thread_info.name);
+      printf(&quot;%s\t&quot;, class_signature);
+      printf(&quot;%lld\t&quot;, location);
+      printf(&quot;%s %lld:%lld\t&quot;, method_name, s_location, e_location);
+      printf(&quot;\n&quot;);
+}
 </code></pre></div>
 <p>执行下列命令：</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">java -classpath . -agentpath:<span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>/jvmagent/TraceAgent.so<span class="o">=</span>log.txt PossibleReordering
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">java -classpath . -agentpath:`pwd`/jvmagent/TraceAgent.so=log.txt PossibleReordering
 </code></pre></div>
 <p>即可得到指令次序信息：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Thread-0    LPossibleReordering$1;  0   run 0:10    
+<div class="highlight"><pre><code class="language-text" data-lang="text">Thread-0    LPossibleReordering$1;  0   run 0:10    
 Thread-0    LPossibleReordering$1;  1   run 0:10    
 Thread-1    LPossibleReordering$2;  0   run 0:80    
 Thread-0    LPossibleReordering$1;  4   run 0:10    
@@ -794,68 +809,68 @@ Thread-1    LPossibleReordering$2;  80  run 0:80
 <p>最终的源代码中，我还输出了线程名，和方法的指令地址范围。</p>
 
 <p>我们可以反编译 <code>PossibleReordering$1</code> 和 <code>PossibleReordering$2</code>，看看相应的指令范围是否可以对应上。</p>
-<div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">$ </span>javap -c PossibleReordering<span class="se">\$</span>1.class
-Compiled from <span class="s2">&quot;PossibleReordering.java&quot;</span>
-final class PossibleReordering<span class="nv">$1</span> implements java.lang.Runnable <span class="o">{</span>
-  PossibleReordering<span class="nv">$1</span><span class="o">()</span>;
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">$ javap -c PossibleReordering\$1.class
+Compiled from &quot;PossibleReordering.java&quot;
+final class PossibleReordering$1 implements java.lang.Runnable {
+  PossibleReordering$1();
     Code:
        0: aload_0       
-       1: invokespecial <span class="c">#1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span>
-       4: <span class="k">return        </span>
+       1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+       4: return        
 
-<span class="k">  </span>public void run<span class="o">()</span>;
+  public void run();
     Code:
        0: iconst_1      
-       1: putstatic     <span class="c">#2                  // Field PossibleReordering.a:I</span>
-       4: getstatic     <span class="c">#3                  // Field PossibleReordering.b:I</span>
-       7: putstatic     <span class="c">#4                  // Field PossibleReordering.x:I</span>
-      10: <span class="k">return</span>        
-<span class="o">}</span>
-</code></pre></div><div class="highlight"><pre><code class="sh language-sh" data-lang="sh"><span class="nv">$ </span>javap -c PossibleReordering<span class="se">\$</span>2.class 
-Compiled from <span class="s2">&quot;PossibleReordering.java&quot;</span>
-final class PossibleReordering<span class="nv">$2</span> implements java.lang.Runnable <span class="o">{</span>
-  PossibleReordering<span class="nv">$2</span><span class="o">()</span>;
+       1: putstatic     #2                  // Field PossibleReordering.a:I
+       4: getstatic     #3                  // Field PossibleReordering.b:I
+       7: putstatic     #4                  // Field PossibleReordering.x:I
+      10: return        
+}
+</code></pre></div><div class="highlight"><pre><code class="language-sh" data-lang="sh">$ javap -c PossibleReordering\$2.class 
+Compiled from &quot;PossibleReordering.java&quot;
+final class PossibleReordering$2 implements java.lang.Runnable {
+  PossibleReordering$2();
     Code:
        0: aload_0       
-       1: invokespecial <span class="c">#1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V</span>
-       4: <span class="k">return        </span>
+       1: invokespecial #1                  // Method java/lang/Object.&quot;&lt;init&gt;&quot;:()V
+       4: return        
 
-<span class="k">  </span>public void run<span class="o">()</span>;
+  public void run();
     Code:
        0: iconst_1      
-       1: putstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-       4: getstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-       7: putstatic     <span class="c">#4                  // Field PossibleReordering.y:I</span>
+       1: putstatic     #2                  // Field PossibleReordering.b:I
+       4: getstatic     #3                  // Field PossibleReordering.a:I
+       7: putstatic     #4                  // Field PossibleReordering.y:I
       10: iconst_1      
-      11: putstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-      14: getstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-      17: putstatic     <span class="c">#5                  // Field PossibleReordering.x:I</span>
+      11: putstatic     #3                  // Field PossibleReordering.a:I
+      14: getstatic     #2                  // Field PossibleReordering.b:I
+      17: putstatic     #5                  // Field PossibleReordering.x:I
       20: iconst_1      
-      21: putstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-      24: getstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-      27: putstatic     <span class="c">#5                  // Field PossibleReordering.x:I</span>
+      21: putstatic     #3                  // Field PossibleReordering.a:I
+      24: getstatic     #2                  // Field PossibleReordering.b:I
+      27: putstatic     #5                  // Field PossibleReordering.x:I
       30: iconst_1      
-      31: putstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-      34: getstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-      37: putstatic     <span class="c">#5                  // Field PossibleReordering.x:I</span>
+      31: putstatic     #3                  // Field PossibleReordering.a:I
+      34: getstatic     #2                  // Field PossibleReordering.b:I
+      37: putstatic     #5                  // Field PossibleReordering.x:I
       40: iconst_1      
-      41: putstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-      44: getstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-      47: putstatic     <span class="c">#5                  // Field PossibleReordering.x:I</span>
+      41: putstatic     #3                  // Field PossibleReordering.a:I
+      44: getstatic     #2                  // Field PossibleReordering.b:I
+      47: putstatic     #5                  // Field PossibleReordering.x:I
       50: iconst_1      
-      51: putstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-      54: getstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-      57: putstatic     <span class="c">#5                  // Field PossibleReordering.x:I</span>
+      51: putstatic     #3                  // Field PossibleReordering.a:I
+      54: getstatic     #2                  // Field PossibleReordering.b:I
+      57: putstatic     #5                  // Field PossibleReordering.x:I
       60: iconst_1      
-      61: putstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-      64: getstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-      67: putstatic     <span class="c">#5                  // Field PossibleReordering.x:I</span>
+      61: putstatic     #3                  // Field PossibleReordering.a:I
+      64: getstatic     #2                  // Field PossibleReordering.b:I
+      67: putstatic     #5                  // Field PossibleReordering.x:I
       70: iconst_1      
-      71: putstatic     <span class="c">#3                  // Field PossibleReordering.a:I</span>
-      74: getstatic     <span class="c">#2                  // Field PossibleReordering.b:I</span>
-      77: putstatic     <span class="c">#5                  // Field PossibleReordering.x:I</span>
-      80: <span class="k">return</span>        
-<span class="o">}</span>
+      71: putstatic     #3                  // Field PossibleReordering.a:I
+      74: getstatic     #2                  // Field PossibleReordering.b:I
+      77: putstatic     #5                  // Field PossibleReordering.x:I
+      80: return        
+}
 </code></pre></div>
 <p>可以看出，确实是一个线程的run方法指令范围是 <code>0:10</code> ，另一个是 <code>0:80</code>，说明我们正确获取了相应指令。</p>
 

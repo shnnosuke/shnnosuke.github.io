@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -537,7 +551,7 @@
 <h2>Data Race Free 的动机</h2>
 
 <p>Data Race Free 是对多线程程序 <strong>同步程度</strong> 的一种描述，假如你的多线程程序的同步程度满足 DRF 的要求，那么，你的程序会有这样一个好处：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">程序在弱一致性模型下执行，执行的结果与在SC模型下执行一样
+<div class="highlight"><pre><code class="language-text" data-lang="text">程序在弱一致性模型下执行，执行的结果与在SC模型下执行一样
 </code></pre></div>
 <p>这意味着，程序员在写程序时，可以按SC模型来推断程序的执行。而程序在底层运行时，可以享受弱一致性模型带来的种种优化措施。</p>
 
@@ -578,7 +592,7 @@
 <p>如果我们想找一个所有操作之间的全序，只需要在这些无须保证顺序的操作中随便选择一个顺序，另外，还需要保证那些因为同步而添加的顺序关系。如此构成一个全序。这个全序正是SC模型所需要的。</p>
 
 <p>由此，我们也明白了DRF的精髓:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">只保证必要的顺序，不保证不必要的顺序。
+<div class="highlight"><pre><code class="language-text" data-lang="text">只保证必要的顺序，不保证不必要的顺序。
 </code></pre></div>
 <p>所谓必要是指，保证这些顺序就可以使得程序在弱一致性模型下的执行结果与SC模型下的执行结果一致，不保证就不行。</p>
 

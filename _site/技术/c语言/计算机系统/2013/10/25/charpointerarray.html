@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -541,39 +555,39 @@
 <p>先看一个示例</p>
 
 <h3>示例1</h3>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">#include &lt;stdio.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">q</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
+int main() {
+    char *p = &quot;hello&quot;;
+    char q[] = &quot;hello&quot;;
 
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;p: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;q: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
+    printf (&quot;p: %s\n&quot;, p);
+    printf (&quot;q: %s\n&quot;, q);
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    return 0;
+}
 </code></pre></div>
 <p>上面的例子会给出这样的输出</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">p: hello
+<div class="highlight"><pre><code class="language-text" data-lang="text">p: hello
 q: hello
 </code></pre></div>
 <p>这样看，<code>char *p</code> 和 <code>char q[]</code> 好像没什么区别, 那么我们再看一个例子</p>
 
 <h3>示例2</h3>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">#include &lt;stdio.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">q</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
+int main() {
+    char *p = &quot;hello&quot;;
+    char q[] = &quot;hello&quot;;
 
-    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;s&#39;</span><span class="p">;</span>
-    <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;s&#39;</span><span class="p">;</span>
+    p[0] = &#39;s&#39;;
+    q[0] = &#39;s&#39;;
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    return 0;
+}
 </code></pre></div>
 <p>如果你在Linux下，运行时可能得到这样的结果</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">Segmentation fault (core dumped)
+<div class="highlight"><pre><code class="language-text" data-lang="text">Segmentation fault (core dumped)
 </code></pre></div>
 <p>这时候你看到了区别，出现了段错误, 你一定想明白，到底发生了什么，
 经过几个小实验，你可能会发现使用 <code>char *p</code> 定义时，p指向的数据是无法改变的。
@@ -657,81 +671,81 @@ q: hello
 内存的不同方式。</p>
 
 <h2>示例3</h2>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="cp">#include &lt;stdlib.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">q</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">6</span><span class="p">);</span>
+int main() {
+    char *p = &quot;hello&quot;;
+    char q[] = &quot;world&quot;;
+    char *r = (char *)malloc(sizeof(char)*6);
 
-    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;s&#39;</span><span class="p">;</span>
-    <span class="n">q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;s&#39;</span><span class="p">;</span>
-    <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;s&#39;</span><span class="p">;</span>
+    p[0] = &#39;s&#39;;
+    q[0] = &#39;s&#39;;
+    r[0] = &#39;s&#39;;
 
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;p is:%s&quot;</span><span class="p">,</span><span class="n">p</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;q is:%s&quot;</span><span class="p">,</span><span class="n">q</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;r is:%s&quot;</span><span class="p">,</span><span class="n">r</span><span class="p">);</span>
+    printf (&quot;p is:%s&quot;,p);
+    printf (&quot;q is:%s&quot;,q);
+    printf (&quot;r is:%s&quot;,r);
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    return 0;
+}
 </code></pre></div>
 <p>我们先用gcc将这段代码编程成汇编语言</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">gcc -S tchar.c -o tchar.s
+<div class="highlight"><pre><code class="language-text" data-lang="text">gcc -S tchar.c -o tchar.s
 </code></pre></div>
 <h2>示例3汇编版本（含注释, 只含关键代码)</h2>
-<div class="highlight"><pre><code class="gas language-gas" data-lang="gas"><span class="na">.file</span>   <span class="s">&quot;tcharp.c&quot;</span>
-    <span class="na">.section</span>    <span class="no">.rodata</span>
-<span class="nl">.LC0:</span>
-    <span class="na">.string</span> <span class="s">&quot;hello&quot;</span>
-<span class="nl">.LC1:</span>
-    <span class="na">.string</span> <span class="s">&quot;p is:%s&quot;</span>
-<span class="nl">.LC2:</span>
-    <span class="na">.string</span> <span class="s">&quot;q is:%s&quot;</span>
-<span class="nl">.LC3:</span>
-    <span class="na">.string</span> <span class="s">&quot;r is:%s&quot;</span>
-    <span class="na">.text</span>
-    <span class="na">.globl</span>  <span class="no">main</span>
-    <span class="na">.type</span>   <span class="no">main</span><span class="p">,</span> <span class="na">@function</span>
-<span class="nl">main:</span>
-<span class="c"># char *p = &quot;hello&quot;</span>
-    <span class="nf">movl</span>    <span class="no">$.LC0</span><span class="p">,</span> <span class="mi">28</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span> 
+<div class="highlight"><pre><code class="language-gas" data-lang="gas">.file   &quot;tcharp.c&quot;
+    .section    .rodata
+.LC0:
+    .string &quot;hello&quot;
+.LC1:
+    .string &quot;p is:%s&quot;
+.LC2:
+    .string &quot;q is:%s&quot;
+.LC3:
+    .string &quot;r is:%s&quot;
+    .text
+    .globl  main
+    .type   main, @function
+main:
+# char *p = &quot;hello&quot;
+    movl    $.LC0, 28(%esp) 
 
-<span class="c"># char q[] = &quot;world&quot;</span>
-    <span class="nf">movl</span>    <span class="no">$1819438967</span><span class="p">,</span> <span class="mi">38</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span> 
-    <span class="no">movw</span>    <span class="no">$100</span><span class="p">,</span> <span class="mi">42</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
+# char q[] = &quot;world&quot;
+    movl    $1819438967, 38(%esp) 
+    movw    $100, 42(%esp)
 
-<span class="c"># char *r = (char *)malloc(sizeof(char)*6)</span>
-    <span class="nf">movl</span>    <span class="no">$6</span><span class="p">,</span> <span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-    <span class="nf">call</span>    <span class="no">malloc</span>
-    <span class="nf">movl</span>    <span class="nv">%eax</span><span class="p">,</span> <span class="mi">32</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
+# char *r = (char *)malloc(sizeof(char)*6)
+    movl    $6, (%esp)
+    call    malloc
+    movl    %eax, 32(%esp)
 
-<span class="c"># p[0] = &#39;s&#39;</span>
-    <span class="nf">movl</span>    <span class="mi">28</span><span class="p">(</span><span class="nv">%esp</span><span class="p">),</span> <span class="nv">%eax</span>
-    <span class="nf">movb</span>    <span class="no">$115</span><span class="p">,</span> <span class="p">(</span><span class="nv">%eax</span><span class="p">)</span>
-<span class="c"># q[0] = &#39;s&#39;</span>
-    <span class="nf">movb</span>    <span class="no">$115</span><span class="p">,</span> <span class="mi">38</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-<span class="c"># r[0] = &#39;s&#39;</span>
-    <span class="nf">movl</span>    <span class="mi">32</span><span class="p">(</span><span class="nv">%esp</span><span class="p">),</span> <span class="nv">%eax</span>
-    <span class="nf">movb</span>    <span class="no">$115</span><span class="p">,</span> <span class="p">(</span><span class="nv">%eax</span><span class="p">)</span>
+# p[0] = &#39;s&#39;
+    movl    28(%esp), %eax
+    movb    $115, (%eax)
+# q[0] = &#39;s&#39;
+    movb    $115, 38(%esp)
+# r[0] = &#39;s&#39;
+    movl    32(%esp), %eax
+    movb    $115, (%eax)
 
-    <span class="nf">movl</span>    <span class="no">$.LC1</span><span class="p">,</span> <span class="nv">%eax</span>
-    <span class="nf">movl</span>    <span class="mi">28</span><span class="p">(</span><span class="nv">%esp</span><span class="p">),</span> <span class="nv">%edx</span> <span class="c"># save p</span>
-    <span class="nf">movl</span>    <span class="nv">%edx</span><span class="p">,</span> <span class="mi">4</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-    <span class="nf">movl</span>    <span class="nv">%eax</span><span class="p">,</span> <span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-    <span class="nf">call</span>    <span class="no">printf</span>
+    movl    $.LC1, %eax
+    movl    28(%esp), %edx # save p
+    movl    %edx, 4(%esp)
+    movl    %eax, (%esp)
+    call    printf
 
-    <span class="nf">movl</span>    <span class="no">$.LC2</span><span class="p">,</span> <span class="nv">%eax</span>
-    <span class="nf">leal</span>    <span class="mi">38</span><span class="p">(</span><span class="nv">%esp</span><span class="p">),</span> <span class="nv">%edx</span> <span class="c"># save q</span>
-    <span class="nf">movl</span>    <span class="nv">%edx</span><span class="p">,</span> <span class="mi">4</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-    <span class="nf">movl</span>    <span class="nv">%eax</span><span class="p">,</span> <span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-    <span class="nf">call</span>    <span class="no">printf</span>
+    movl    $.LC2, %eax
+    leal    38(%esp), %edx # save q
+    movl    %edx, 4(%esp)
+    movl    %eax, (%esp)
+    call    printf
 
-    <span class="nf">movl</span>    <span class="no">$.LC3</span><span class="p">,</span> <span class="nv">%eax</span>
-    <span class="nf">movl</span>    <span class="mi">32</span><span class="p">(</span><span class="nv">%esp</span><span class="p">),</span> <span class="nv">%edx</span> <span class="c"># save r</span>
-    <span class="nf">movl</span>    <span class="nv">%edx</span><span class="p">,</span> <span class="mi">4</span><span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-    <span class="nf">movl</span>    <span class="nv">%eax</span><span class="p">,</span> <span class="p">(</span><span class="nv">%esp</span><span class="p">)</span>
-    <span class="nf">call</span>    <span class="no">printf</span>
+    movl    $.LC3, %eax
+    movl    32(%esp), %edx # save r
+    movl    %edx, 4(%esp)
+    movl    %eax, (%esp)
+    call    printf
 </code></pre></div>
 <p>从上述汇编代码可以看出p,q,r三种使用内存的方式。从初始化上看，
 p指向的&quot;hello&quot;,初始化时，直接指向了一个固定的位置,这意味着代码执行的时候，
@@ -745,7 +759,7 @@ p指向的&quot;hello&quot;,初始化时，直接指向了一个固定的位置,
 <p>.text 段放着已经编译的程序机器代码。<br>
 .rodata 段放着只读数据，<code>printf</code>函数参数中的字符串，p指向的&quot;hello&quot;，
 都在这存着。正因为这个段是只读的，所以不能修改，代码   </p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;s&#39;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">p[0] = &#39;s&#39;
 </code></pre></div>
 <p>执行时就会出现段错误。<br>
 .data 段放着已经初始化的全局变量，.bss 段变着没有初始化的全局变量。<br>
@@ -762,31 +776,31 @@ r表示的地址指向的数据，在Run-time heap中存储。  </p>
 然后查看内存分配。</p>
 
 <h2>示例4</h2>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
-<span class="cp">#include &lt;stdlib.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="n">q</span><span class="p">[]</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">;</span>
-    <span class="kt">char</span> <span class="o">*</span><span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="o">*</span><span class="mi">6</span><span class="p">);</span>
-    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+int main() {
+    char *p = &quot;hello&quot;;
+    char q[] = &quot;world&quot;;
+    char *r = (char *)malloc(sizeof(char)*6);
+    int n;
 
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;addr of p:%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;addr of q:%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">q</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;addr of r:%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">r</span><span class="p">);</span>
+    printf (&quot;addr of p:%p\n&quot;, &amp;p);
+    printf (&quot;addr of q:%p\n&quot;, &amp;q);
+    printf (&quot;addr of r:%p\n&quot;, &amp;r);
 
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;addr of p&#39;s data:%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;addr of q&#39;s data:%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">q</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;addr of r&#39;s data:%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+    printf (&quot;addr of p&#39;s data:%p\n&quot;, p);
+    printf (&quot;addr of q&#39;s data:%p\n&quot;, q);
+    printf (&quot;addr of r&#39;s data:%p\n&quot;, r);
 
-    <span class="n">scanf</span> <span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+    scanf (&quot;%d\n&quot;, &amp;n);
 
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    return 0;
+}
 </code></pre></div>
 <p>为了便于观察，我们引入scanf,同时放在后台运行，这样只要我们不输入数据，
 进程就不会终止，我们就可以观察它。运行它，  </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ ./tcharp  &amp;
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ ./tcharp  &amp;
 [2] 3461
 addr of p:0xbfaa91d8
 addr of q:0xbfaa91e6
@@ -800,10 +814,10 @@ addr of r&#39;s data:0x87ad008
 0x87XXXXX这一块是Run-time heap区域。</p>
 
 <p>接下来，我们使用 <code>readelf</code> 命令，得到各个区域的实际位置，进一步明确我们的猜想。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ readelf -a tcharp &gt; tcharp_elf.txt
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ readelf -a tcharp &gt; tcharp_elf.txt
 </code></pre></div>
 <p>从tcharp_elf.txt中截取关键数据, 得到</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">  [11] .init             PROGBITS        08048318 000318 00002e 00  AX  0   0  4
+<div class="highlight"><pre><code class="language-text" data-lang="text">  [11] .init             PROGBITS        08048318 000318 00002e 00  AX  0   0  4
   [12] .plt              PROGBITS        08048350 000350 000060 04  AX  0   0 16
   [13] .text             PROGBITS        080483b0 0003b0 00023c 00  AX  0   0 16
   [14] .fini             PROGBITS        080485ec 0005ec 00001a 00  AX  0   0  4
@@ -822,11 +836,12 @@ addr of r&#39;s data:0x87ad008
   [27] .shstrtab         STRTAB          00000000 001046 0000fc 00      0   0  1
   [28] .symtab           SYMTAB          00000000 0015f4 000430 10     29  45  4
   [29] .strtab           STRTAB          00000000 001a24 00022c 00      0   0  1
+
 </code></pre></div>
 <p>从这里，我们可以验证对 .rodata 段的猜测，p指向的 &quot;hello&quot;, 确实是存储在这一段。</p>
 
 <p>然后，我们查看其它段的位置</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ cat /proc/3461/maps 
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ cat /proc/3461/maps 
 08048000-08049000 r-xp 00000000 08:0a 4981409    /home/zhaoxk/test/tcharp
 08049000-0804a000 r--p 00000000 08:0a 4981409    /home/zhaoxk/test/tcharp
 0804a000-0804b000 rw-p 00001000 08:0a 4981409    /home/zhaoxk/test/tcharp
@@ -862,7 +877,7 @@ bfa8b000-bfaac000 rw-p 00000000 00:00 0          [stack]
 
 <hr>
 
-<p>转载请注明出处： http://shnnosuke.github.io/2013/10/25/charpointerarray.html</p>
+<p>转载请注明出处： http://minixalpha.github.io/2013/10/25/charpointerarray.html</p>
 
 
       </article>

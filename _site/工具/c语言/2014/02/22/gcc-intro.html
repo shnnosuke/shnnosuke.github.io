@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -540,7 +554,7 @@
 <a href="http://gcc.gnu.org/onlinedocs/">这里</a> 有不同版本的手册。</p>
 
 <h2>查看版本</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ gcc --version
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gcc --version
 gcc (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
 Copyright (C) 2011 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
@@ -551,7 +565,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <h3>一次编译</h3>
 
 <p>如果想直接得到可执行文件，最简单的是这样：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">    gcc test.c -o test
+<div class="highlight"><pre><code class="language-text" data-lang="text">    gcc test.c -o test
 </code></pre></div>
 <h3>分段编译</h3>
 
@@ -559,16 +573,16 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 <ul>
 <li><p>源文件-&gt;预处理-&gt;中间文件  </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">gcc -E test.c -o test.i
+<div class="highlight"><pre><code class="language-text" data-lang="text">gcc -E test.c -o test.i
 </code></pre></div></li>
 <li><p>中间文件-&gt;编译-&gt;汇编文件  </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">   gcc -S test.i -o test.s
+<div class="highlight"><pre><code class="language-text" data-lang="text">   gcc -S test.i -o test.s
 </code></pre></div></li>
 <li><p>汇编文件-&gt;转换-&gt;二进制代码  </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">   gcc -c test.s -o test.o
+<div class="highlight"><pre><code class="language-text" data-lang="text">   gcc -c test.s -o test.o
 </code></pre></div></li>
 <li><p>二进制代码-&gt;链接-&gt;可执行文件  </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">   gcc test.o -o test
+<div class="highlight"><pre><code class="language-text" data-lang="text">   gcc test.o -o test
 </code></pre></div></li>
 </ul>
 
@@ -577,7 +591,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <p>不同的标准对于语言特性的支持是不一样的，所以一定要关注标准，别写了半天程序连自己是在什么标准下写的都不知道。</p>
 
 <p>关于C语言的标准，首先要提到的就是 ANSI C, 1989年批准，即C89，1990年批准成为ISO标准，即C90或ISO/IEC 9899:1990。C89和C90其实是一样的。可以使用 <code>-ansi</code> 或者  <code>-std=c89</code> 或者 <code>-std=c90</code> 或者<code>-std=iso9899:1990</code> 来指定，例如：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text"> $ gcc -ansi test.c -o test
+<div class="highlight"><pre><code class="language-text" data-lang="text"> $ gcc -ansi test.c -o test
  $ gcc -std=c89 test.c -o test
  $ gcc -std=iso9899:1990 test.c -o test
 </code></pre></div>
@@ -592,7 +606,7 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <p>更多关于GCC支持的语言标准的描述，可以在这里找到：<a href="http://gcc.gnu.org/onlinedocs/gcc-4.6.4/gcc/Standards.html">Language Standards Supported by GCC</a>
 。</p>
 
-<p>关于各个标准的简介可以在 Wikipedia 的 C (programming language) 的 <a href="http://en.wikipedia.org/wiki/C_(programming_language">History</a>#History) 中找到，另外强烈建议把这个词条完整地阅读一遍，可以对C语言有一个全方位的概览。</p>
+<p>关于各个标准的简介可以在 Wikipedia 的 C (programming language) 的 <a href="http://en.wikipedia.org/wiki/C_(programming_language)#History">History</a> 中找到，另外强烈建议把这个词条完整地阅读一遍，可以对C语言有一个全方位的概览。</p>
 
 <p>ISO对于各个标准的介绍可以在 <a href="http://www.iso-9899.info/wiki/The_Standard#C89_.2F_C90_.2F_C95">iso9899</a>中找到。</p>
 
@@ -601,24 +615,24 @@ warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 <p>GCC 的警告信息有时候会给我们一些非常重要的提示，防止我们写出错误的程序，最常用的选项是 <code>-Wall</code>，意思是打开全部的警告信息。如果没有错误，仅仅是得到了警告，程序不会停止编译，因为警告不一定是错误的。但是如果你对程序要求比较高，想让编译器在出现警告时停止编译，那么可以在<code>-Wall</code>基础上，使用 <code>-Werror</code> 选项，这样GCC会把警告当成错误来处理。</p>
 
 <p>例如，我们有这样一个程序：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cp">#include &lt;stdio.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">#include &lt;stdio.h&gt;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+int main(void) {
+    int foo = 2;
 
-    <span class="k">if</span> <span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello, world</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
+    if (foo = 1) {
+        printf(&quot;hello, world\n&quot;);
+    }
+    return 0;
+}
 </code></pre></div>
 <p>注意 <code>=</code> 和 <code>==</code> 的区别，我们试试警告选项：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ gcc -Wall -ansi test.c -o test
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gcc -Wall -ansi test.c -o test
 test.c: In function ‘main’:
 test.c:6:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
 </code></pre></div>
 <p>可以看出，GCC对我们提出了警告。我们再加上 <code>-Werror</code> 试试：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ gcc -Wall -Werror -ansi test.c -o test
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gcc -Wall -Werror -ansi test.c -o test
 test.c: In function ‘main’:
 test.c:6:5: error: suggest parentheses around assignment used as truth value [-    Werror=parentheses]
 cc1: all warnings being treated as errors
@@ -630,10 +644,10 @@ cc1: all warnings being treated as errors
 <h2>调试信息</h2>
 
 <p>有时候我们的程序需要使用 GDB 来调试，就需要在编译时加入调试信息，可以通过 <code>-g</code> 选项来加入：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ gcc -g -ansi test.c -o test
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gcc -g -ansi test.c -o test
 </code></pre></div>
 <p>然后通过 GDB 来调试:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ gdb test
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gdb test
 GNU gdb (Ubuntu/Linaro 7.4-2012.04-0ubuntu2.1) 7.4-2012.04
 Copyright (C) 2012 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
@@ -652,7 +666,7 @@ Reading symbols from /home/minix/Project/C/language/test...done.
 <h2>优化</h2>
 
 <p>GCC 可以对程序提供不同程度的优化，<code>-O0</code> 不提供任何优化，这也是默认的情况，从 <code>-O1</code> 到 <code>-O3</code>提供越来越多的优化，例如：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$ gcc -O1 test.c -o test
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ gcc -O1 test.c -o test
 $ gcc -O3 test.c -o test
 </code></pre></div>
 <p>更多关于优化的信息可以在 GCC 文档的 <a href="http://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html">Optimize Options</a>中找到。</p>

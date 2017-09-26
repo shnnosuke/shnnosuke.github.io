@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -555,33 +569,33 @@
 </ul>
 
 <p>Tomcat 中有一系列 XXXFacade 类，就是为 XXX类提供一种外观。例如 <code>org.apache.catalina.connector.RequestFacade</code> 类，就是 <code>org.apache.catalina.connector.Request</code> 类的外观，它的构造器中要指明 <code>Request</code> 类：</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="nf">RequestFacade</span><span class="o">(</span><span class="n">Request</span> <span class="n">request</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">public RequestFacade(Request request) {
 
-    <span class="k">this</span><span class="o">.</span><span class="na">request</span> <span class="o">=</span> <span class="n">request</span><span class="o">;</span>
+    this.request = request;
 
-<span class="o">}</span>
+}
 </code></pre></div>
 <p>它提供的功能，也是调用 <code>Request</code> 类的方法完成的，例如：</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">public</span> <span class="n">Object</span> <span class="nf">getAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">@Override
+public Object getAttribute(String name) {
 
-    <span class="k">if</span> <span class="o">(</span><span class="n">request</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span>
-                        <span class="n">sm</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;requestFacade.nullRequest&quot;</span><span class="o">));</span>
-    <span class="o">}</span>
+    if (request == null) {
+        throw new IllegalStateException(
+                        sm.getString(&quot;requestFacade.nullRequest&quot;));
+    }
 
-    <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="n">name</span><span class="o">);</span>
-<span class="o">}</span>
+    return request.getAttribute(name);
+}
 </code></pre></div>
 <p>为什么要费此周折呢，直接用 <code>Request</code> 类不好么？</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">不好
+<div class="highlight"><pre><code class="language-text" data-lang="text">不好
 </code></pre></div>
 <p>原因在于，Tomcat 作为 <code>Servlet</code> 容器，是要调用客户端的 <code>jsp</code> 代码，并将实现 <code>HttpServletRequest</code> 及 <code>HttpServletResponse</code> 类的对象传递给客户端代码。如果直接传递 <code>Request</code> 对象，那么知道 <code>Request</code> 实现细节的程序员就可以通过转型调用 <code>Request</code> 的所有 <code>public</code> 方法，这是我们不愿意看到的，因为其中一部分 <code>public</code> 方法不是给客户端程序员使用的，是用于 Tomcat 内部的。所以，可以为 <code>Request</code> 类提供了一个外观类 <code>RequestFacade</code>，把 <code>RequestFacade</code> 类的对象传递给客户端代码，在 <code>RequestFacade</code> 类中，只开放必要的接口。</p>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doGet</span><span class="o">(</span>
-<span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> 
-<span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
-    <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="s">&quot;bar&quot;</span><span class="o">);</span>
-<span class="o">}</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">protected void doGet(
+HttpServletRequest request, HttpServletResponse response) 
+throws ServletException, IOException {
+    response.getWriter().write(&quot;bar&quot;);
+}
 </code></pre></div>
 
       </article>

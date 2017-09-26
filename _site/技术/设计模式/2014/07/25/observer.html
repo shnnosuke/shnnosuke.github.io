@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -545,57 +559,57 @@
 <ul>
 <li>示例</li>
 </ul>
-<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">interface</span> <span class="nc">Observer</span> <span class="o">{</span>
-    <span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="kt">int</span> <span class="n">data</span><span class="o">);</span>
-<span class="o">}</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java">interface Observer {
+    void update(int data);
+}
 
-<span class="kd">class</span> <span class="nc">NewsPaper</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">LinkedList</span><span class="o">&lt;</span><span class="n">Observer</span><span class="o">&gt;</span> <span class="n">observers</span><span class="o">;</span>
+class NewsPaper {
+    private LinkedList&lt;Observer&gt; observers;
 
-    <span class="kd">public</span> <span class="nf">NewsPaper</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">observers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LinkedList</span><span class="o">&lt;&gt;();</span>
-    <span class="o">}</span>
+    public NewsPaper() {
+        observers = new LinkedList&lt;&gt;();
+    }
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">subscribe</span><span class="o">(</span><span class="n">Observer</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">observers</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
-    <span class="o">}</span>
+    public void subscribe(Observer o) {
+        observers.add(o);
+    }
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">unsubscribe</span><span class="o">(</span><span class="n">Observer</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">observers</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">o</span><span class="o">);</span>
-    <span class="o">}</span>
+    public void unsubscribe(Observer o) {
+        observers.remove(o);
+    }
 
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">changeData</span><span class="o">(</span><span class="kt">int</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">for</span> <span class="o">(</span><span class="n">Observer</span> <span class="n">o</span> <span class="o">:</span> <span class="n">observers</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">o</span><span class="o">.</span><span class="na">update</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    public void changeData(int data) {
+        for (Observer o : observers) {
+            o.update(data);
+        }
+    }
+}
 
-<span class="kd">class</span> <span class="nc">Reader</span> <span class="kd">implements</span> <span class="n">Observer</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+class Reader implements Observer {
+    private String name;
 
-    <span class="kd">public</span> <span class="nf">Reader</span><span class="o">(</span><span class="n">NewsPaper</span> <span class="n">paper</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-        <span class="n">paper</span><span class="o">.</span><span class="na">subscribe</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-    <span class="o">}</span>
+    public Reader(NewsPaper paper, String name) {
+        this.name = name;
+        paper.subscribe(this);
+    }
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="kt">int</span> <span class="n">data</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">&quot; update data:&quot;</span> <span class="o">+</span> <span class="n">data</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+    @Override
+    public void update(int data) {
+        System.out.println(name + &quot; update data:&quot; + data);
+    }
+}
 
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestObserve</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">NewsPaper</span> <span class="n">newsPaper</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NewsPaper</span><span class="o">();</span>
-        <span class="n">Reader</span> <span class="n">tom</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Reader</span><span class="o">(</span><span class="n">newsPaper</span><span class="o">,</span> <span class="s">&quot;tom&quot;</span><span class="o">);</span>
-        <span class="n">Reader</span> <span class="n">jack</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Reader</span><span class="o">(</span><span class="n">newsPaper</span><span class="o">,</span> <span class="s">&quot;jack&quot;</span><span class="o">);</span>
-        <span class="n">newsPaper</span><span class="o">.</span><span class="na">changeData</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;--&quot;</span><span class="o">);</span>
-        <span class="n">newsPaper</span><span class="o">.</span><span class="na">unsubscribe</span><span class="o">(</span><span class="n">tom</span><span class="o">);</span>
-        <span class="n">newsPaper</span><span class="o">.</span><span class="na">changeData</span><span class="o">(</span><span class="mi">5</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+public class TestObserve {
+    public static void main(String[] args) {
+        NewsPaper newsPaper = new NewsPaper();
+        Reader tom = new Reader(newsPaper, &quot;tom&quot;);
+        Reader jack = new Reader(newsPaper, &quot;jack&quot;);
+        newsPaper.changeData(10);
+        System.out.println(&quot;--&quot;);
+        newsPaper.unsubscribe(tom);
+        newsPaper.changeData(5);
+    }
+}
 </code></pre></div>
 <p>所有  Reader 都是观察者，当他订阅了 NewsPaper 后。NewsPaper 一有新数据，就会通知所有订阅了它的 Reader。</p>
 

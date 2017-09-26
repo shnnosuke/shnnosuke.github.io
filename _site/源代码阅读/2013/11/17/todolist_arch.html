@@ -68,32 +68,8 @@
   <ul class="category-list">
       
             
-                <li style="background-color: #444">
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
                 <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li style="background-color: #444">
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -535,7 +549,7 @@
 <h1>web.py 项目之 todolist</h1>
 
 <h2>目录树</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.
+<div class="highlight"><pre><code class="language-text" data-lang="text">.
 └── src
     ├── model.py
     ├── schema.sql
@@ -557,60 +571,61 @@
 <h3>控制模块</h3>
 
 <p>控制模块只有todo.py</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="sd">&quot;&quot;&quot; Basic todo list using webpy 0.3 &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">model</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">
+&quot;&quot;&quot; Basic todo list using webpy 0.3 &quot;&quot;&quot;
+import web
+import model
 
-<span class="c">### Url mappings</span>
+### Url mappings
 
-<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;Index&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/del/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;Delete&#39;</span>
-<span class="p">)</span>
-
-
-<span class="c">### Templates</span>
-<span class="n">render</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;templates&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s">&#39;base&#39;</span><span class="p">)</span>
+urls = (
+    &#39;/&#39;, &#39;Index&#39;,
+    &#39;/del/(\d+)&#39;, &#39;Delete&#39;
+)
 
 
-<span class="k">class</span> <span class="nc">Index</span><span class="p">:</span>
-
-    <span class="n">form</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
-        <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">Textbox</span><span class="p">(</span><span class="s">&#39;title&#39;</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">notnull</span><span class="p">,</span> 
-            <span class="n">description</span><span class="o">=</span><span class="s">&quot;I need to:&quot;</span><span class="p">),</span>
-        <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s">&#39;Add todo&#39;</span><span class="p">),</span>
-    <span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Show page &quot;&quot;&quot;</span>
-        <span class="n">todos</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_todos</span><span class="p">()</span>
-        <span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span> <span class="n">form</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Add new entry &quot;&quot;&quot;</span>
-        <span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">form</span><span class="o">.</span><span class="n">validates</span><span class="p">():</span>
-            <span class="n">todos</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_todos</span><span class="p">()</span>
-            <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">todos</span><span class="p">,</span> <span class="n">form</span><span class="p">)</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">new_todo</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">seeother</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+### Templates
+render = web.template.render(&#39;templates&#39;, base=&#39;base&#39;)
 
 
+class Index:
 
-<span class="k">class</span> <span class="nc">Delete</span><span class="p">:</span>
+    form = web.form.Form(
+        web.form.Textbox(&#39;title&#39;, web.form.notnull, 
+            description=&quot;I need to:&quot;),
+        web.form.Button(&#39;Add todo&#39;),
+    )
 
-    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Delete based on ID &quot;&quot;&quot;</span>
-        <span class="nb">id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">del_todo</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">seeother</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+    def GET(self):
+        &quot;&quot;&quot; Show page &quot;&quot;&quot;
+        todos = model.get_todos()
+        form = self.form()
+        return render.index(todos, form)
+
+    def POST(self):
+        &quot;&quot;&quot; Add new entry &quot;&quot;&quot;
+        form = self.form()
+        if not form.validates():
+            todos = model.get_todos()
+            return render.index(todos, form)
+        model.new_todo(form.d.title)
+        raise web.seeother(&#39;/&#39;)
 
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">application</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+class Delete:
+
+    def POST(self, id):
+        &quot;&quot;&quot; Delete based on ID &quot;&quot;&quot;
+        id = int(id)
+        model.del_todo(id)
+        raise web.seeother(&#39;/&#39;)
+
+
+app = web.application(urls, globals())
+
+if __name__ == &#39;__main__&#39;:
+    app.run()
 </code></pre></div>
 <p>这一模块是对页面逻辑的处理，包括：</p>
 
@@ -630,41 +645,43 @@ skeleton 项目那样有专门的一个 view.py 提供具体的与显示相关
 的逻辑。</p>
 
 <p>templates/base.html</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">$def with (page)
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+$def with (page)
 
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>Todo list<span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Todo list&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
 $:page
 
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div>
 <p>templates/index.html</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">$def with (todos, form)
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+$def with (todos, form)
 
-<span class="nt">&lt;table&gt;</span>
-    <span class="nt">&lt;tr&gt;</span>
-        <span class="nt">&lt;th&gt;</span>What to do ?<span class="nt">&lt;/th&gt;</span>
-        <span class="nt">&lt;th&gt;&lt;/th&gt;</span>
-    <span class="nt">&lt;/tr&gt;</span>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;What to do ?&lt;/th&gt;
+        &lt;th&gt;&lt;/th&gt;
+    &lt;/tr&gt;
 $for todo in todos:
-    <span class="nt">&lt;tr&gt;</span>
-        <span class="nt">&lt;td&gt;</span>$todo.title<span class="nt">&lt;/td&gt;</span>
-        <span class="nt">&lt;td&gt;</span>
-            <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/del/$todo.id&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Delete&quot;</span><span class="nt">/&gt;</span>
-            <span class="nt">&lt;/form&gt;</span>
-        <span class="nt">&lt;/td&gt;</span>
-    <span class="nt">&lt;/tr&gt;</span>    
-<span class="nt">&lt;/table&gt;</span>  
+    &lt;tr&gt;
+        &lt;td&gt;$todo.title&lt;/td&gt;
+        &lt;td&gt;
+            &lt;form action=&quot;/del/$todo.id&quot; method=&quot;post&quot;&gt;
+                &lt;input type=&quot;submit&quot; value=&quot;Delete&quot;/&gt;
+            &lt;/form&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;    
+&lt;/table&gt;  
 
-<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
 $:form.render()
-<span class="nt">&lt;/form&gt;</span>
+&lt;/form&gt;
 </code></pre></div>
 <p>注意这里表单的实现，是在控制模块中生成了 form, 传给模板引擎。
 我觉得还是应该分开好。毕竟 form 只与显示相关，和控制无关。</p>
@@ -676,25 +693,25 @@ $:form.render()
 提供数据库表格式。</p>
 
 <p>schema.sql</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">CREATE TABLE todo (
+<div class="highlight"><pre><code class="language-text" data-lang="text">CREATE TABLE todo (
     id INT AUTO_INCREMENT,
     title TEXT,
     primary key (id)
 );
 </code></pre></div>
 <p>model.py</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="kn">import</span> <span class="nn">web</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">import web
 
-<span class="n">db</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">database</span><span class="p">(</span><span class="n">dbn</span><span class="o">=</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s">&#39;todo&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;root&#39;</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="s">&quot;XXX&quot;</span><span class="p">)</span>
+db = web.database(dbn=&#39;mysql&#39;, db=&#39;todo&#39;, user=&#39;root&#39;, pw=&quot;XXX&quot;)
 
-<span class="k">def</span> <span class="nf">get_todos</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">&#39;todo&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s">&#39;id&#39;</span><span class="p">)</span>
+def get_todos():
+    return db.select(&#39;todo&#39;, order=&#39;id&#39;)
 
-<span class="k">def</span> <span class="nf">new_todo</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s">&#39;todo&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+def new_todo(text):
+    db.insert(&#39;todo&#39;, title=text)
 
-<span class="k">def</span> <span class="nf">del_todo</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">&#39;todo&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&quot;id=$id&quot;</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="nb">locals</span><span class="p">())</span>
+def del_todo(id):
+    db.delete(&#39;todo&#39;, where=&quot;id=$id&quot;, vars=locals())
 </code></pre></div>
 <p>总的来说，项目还是太小了，无法体会到当初作 BlogSystem 时遇到的困难应该怎么
 解决，不过MVC的结构已经非常明显了，希望以后可以阅读一些大型网站的结构。</p>

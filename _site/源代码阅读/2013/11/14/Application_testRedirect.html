@@ -68,32 +68,8 @@
   <ul class="category-list">
       
             
-                <li style="background-color: #444">
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
                 <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li style="background-color: #444">
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -537,74 +551,75 @@
 <h2>application.py</h2>
 
 <p>对 application.py 的测试，调用命令：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">python test/application.py
+<div class="highlight"><pre><code class="language-text" data-lang="text">python test/application.py
 </code></pre></div>
 <h3>testRedirect</h3>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">testRedirect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s">&quot;/a&quot;</span><span class="p">,</span> <span class="s">&quot;redirect /hello/&quot;</span><span class="p">,</span>
-        <span class="s">&quot;/b/(.*)&quot;</span><span class="p">,</span> <span class="s">r&quot;redirect /hello/\1&quot;</span><span class="p">,</span>
-        <span class="s">&quot;/hello/(.*)&quot;</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span>
-    <span class="p">)</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">application</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
-    <span class="k">class</span> <span class="nc">hello</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span> 
-            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="s">&#39;world&#39;</span>
-            <span class="k">return</span> <span class="s">&quot;hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def testRedirect(self):
+    urls = (
+        &quot;/a&quot;, &quot;redirect /hello/&quot;,
+        &quot;/b/(.*)&quot;, r&quot;redirect /hello/\1&quot;,
+        &quot;/hello/(.*)&quot;, &quot;hello&quot;
+    )
+    app = web.application(urls, locals())
+    class hello:
+        def GET(self, name): 
+            name = name or &#39;world&#39;
+            return &quot;hello &quot; + name
 
-    <span class="n">response</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;/a&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="s">&#39;301 Moved Permanently&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span>
-        <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;Location&#39;</span><span class="p">],</span> 
-        <span class="s">&#39;http://0.0.0.0:8080/hello/&#39;</span><span class="p">)</span>
+    response = app.request(&#39;/a&#39;)
+    self.assertEquals(response.status, &#39;301 Moved Permanently&#39;)
+    self.assertEquals(
+        response.headers[&#39;Location&#39;], 
+        &#39;http://0.0.0.0:8080/hello/&#39;)
 
-    <span class="n">response</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;/a?x=2&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="s">&#39;301 Moved Permanently&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span>
-        <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;Location&#39;</span><span class="p">],</span> 
-        <span class="s">&#39;http://0.0.0.0:8080/hello/?x=2&#39;</span><span class="p">)</span>
+    response = app.request(&#39;/a?x=2&#39;)
+    self.assertEquals(response.status, &#39;301 Moved Permanently&#39;)
+    self.assertEquals(
+        response.headers[&#39;Location&#39;], 
+        &#39;http://0.0.0.0:8080/hello/?x=2&#39;)
 
-    <span class="n">response</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;/b/foo?x=2&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="s">&#39;301 Moved Permanently&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span>
-        <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;Location&#39;</span><span class="p">],</span> 
-        <span class="s">&#39;http://0.0.0.0:8080/hello/foo?x=2&#39;</span><span class="p">)</span>
+    response = app.request(&#39;/b/foo?x=2&#39;)
+    self.assertEquals(response.status, &#39;301 Moved Permanently&#39;)
+    self.assertEquals(
+        response.headers[&#39;Location&#39;], 
+        &#39;http://0.0.0.0:8080/hello/foo?x=2&#39;)
 </code></pre></div>
 <p>看到这段代码首先对 <code>urls</code> 挺好奇的，<code>urls</code> 一般是一个 <code>url</code> 对应
 一个处理它的类，可是 <code>redirect /hello/</code> 是什么意思？所以，我们
 有必要看一下 <code>web.application</code> 如何对 <code>urls</code> 进行处理。</p>
 
 <p>我们还从这句开始：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">response</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;/a&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">response = app.request(&#39;/a&#39;)
 </code></pre></div>
 <p>看看 <code>urls</code> 是如何被处理的。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application.request</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application.request
 
-<span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">localpart</span><span class="o">=</span><span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-            <span class="n">host</span><span class="o">=</span><span class="s">&quot;0.0.0.0:8080&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">https</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+def request(self, localpart=&#39;/&#39;, method=&#39;GET&#39;, data=None,
+            host=&quot;0.0.0.0:8080&quot;, headers=None, https=False, **kw):
 
 
-    <span class="n">path</span><span class="p">,</span> <span class="n">maybe_query</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">splitquery</span><span class="p">(</span><span class="n">localpart</span><span class="p">)</span>
-    <span class="n">query</span> <span class="o">=</span> <span class="n">maybe_query</span> <span class="ow">or</span> <span class="s">&quot;&quot;</span>
+    path, maybe_query = urllib.splitquery(localpart)
+    query = maybe_query or &quot;&quot;
 
-    <span class="o">...</span>
+    ...
 
-    <span class="n">env</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">HTTP_HOST</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">REQUEST_METHOD</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">PATH_INFO</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> 
-        <span class="n">QUERY_STRING</span><span class="o">=</span><span class="n">query</span><span class="p">,</span> <span class="n">HTTPS</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">https</span><span class="p">))</span>
+    env = dict(env, HTTP_HOST=host, REQUEST_METHOD=method, PATH_INFO=path, 
+        QUERY_STRING=query, HTTPS=str(https))
 
-    <span class="o">...</span>
+    ...
 
-    <span class="n">response</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wsgifunc</span><span class="p">()(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">))</span>
+    response.data = &quot;&quot;.join(self.wsgifunc()(env, start_response))
+
 </code></pre></div>
 <p>可以看出，请求的 <code>url</code> 被分成两部分： <code>path</code> 和 <code>maybe_query</code>, 
 然后传入 <code>env</code>中。</p>
 
 <p><code>urllib</code> 是标准库的一部分，但是在文档中没有对 <code>splitquery</code>
 有说明，这可能是一个非公开的API。通过</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&gt;&gt;&gt; help(urllib.splitquery)
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; help(urllib.splitquery)
 </code></pre></div>
 <p>可以得到</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">splitquery(&#39;/path?query&#39;) --&gt; &#39;/path&#39;, &#39;query&#39;
+<div class="highlight"><pre><code class="language-text" data-lang="text">splitquery(&#39;/path?query&#39;) --&gt; &#39;/path&#39;, &#39;query&#39;
 </code></pre></div>
 <p>看来这个调用是把 <code>url</code> 请求分成路径与请求两个部分，这也和
 返回结果的赋值保持一致。</p>
@@ -617,89 +632,89 @@
 封装在 <code>env</code> 后发生的故事。</p>
 
 <p>我们又来到这里：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python">    <span class="n">response</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wsgifunc</span><span class="p">()(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">))</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">    response.data = &quot;&quot;.join(self.wsgifunc()(env, start_response))
 </code></pre></div>
 <p>最终对 <code>env</code> 的处理在 <code>wsgi</code> 函数中。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application.wsgifunc.wsgi</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application.wsgifunc.wsgi
 
-        <span class="k">def</span> <span class="nf">wsgi</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_resp</span><span class="p">):</span>
-            <span class="c"># clear threadlocal to avoid inteference of previous requests</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">()</span>
+        def wsgi(env, start_resp):
+            # clear threadlocal to avoid inteference of previous requests
+            self._cleanup()
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="c"># allow uppercase methods only</span>
-                <span class="k">if</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">!=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">nomethod</span><span class="p">()</span>
+            self.load(env)
+            try:
+                # allow uppercase methods only
+                if web.ctx.method.upper() != web.ctx.method:
+                    raise web.nomethod()
 
-                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_with_processors</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">is_generator</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="n">peep</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">]</span>
-            <span class="k">except</span> <span class="n">web</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">data</span><span class="p">]</span>
+                result = self.handle_with_processors()
+                if is_generator(result):
+                    result = peep(result)
+                else:
+                    result = [result]
+            except web.HTTPError, e:
+                result = [e.data]
 
 
-            <span class="n">result</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">safestr</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+            result = web.safestr(iter(result))
 
-            <span class="n">status</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">headers</span>
+            status, headers = web.ctx.status, web.ctx.headers
 
-            <span class="n">start_resp</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+            start_resp(status, headers)
 </code></pre></div>
 <p>同样，先把 <code>env</code> 载入 <code>web.ctx</code>， 然后我们通过 <code>print</code> 定位到
 这一句改变了 <code>web.ctx.status</code> 的值。 </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">                result = self.handle_with_processors()
+<div class="highlight"><pre><code class="language-text" data-lang="text">                result = self.handle_with_processors()
 </code></pre></div>
 <p>可见这里对 <code>url</code> 进行了分析。下面我们深入下去。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application.handle_with_processors</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application.handle_with_processors
 
-<span class="k">def</span> <span class="nf">handle_with_processors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">processors</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">processors</span><span class="p">:</span>
-                <span class="n">p</span><span class="p">,</span> <span class="n">processors</span> <span class="o">=</span> <span class="n">processors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">processors</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-                <span class="k">return</span> <span class="n">p</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">process</span><span class="p">(</span><span class="n">processors</span><span class="p">))</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">()</span>
-        <span class="k">except</span> <span class="n">web</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">:</span>
-            <span class="k">raise</span>
-        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">SystemExit</span><span class="p">):</span>
-            <span class="k">raise</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="o">&gt;&gt;</span> <span class="n">web</span><span class="o">.</span><span class="n">debug</span><span class="p">,</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">internalerror</span><span class="p">()</span>
+def handle_with_processors(self):
+    def process(processors):
+        try:
+            if processors:
+                p, processors = processors[0], processors[1:]
+                return p(lambda: process(processors))
+            else:
+                return self.handle()
+        except web.HTTPError:
+            raise
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            print &gt;&gt; web.debug, traceback.format_exc()
+            raise self.internalerror()
 
-    <span class="c"># processors must be applied in the resvere order. (??)</span>
-    <span class="k">return</span> <span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">)</span>
+    # processors must be applied in the resvere order. (??)
+    return process(self.processors)
 </code></pre></div>
 <p>这里 <code>processors</code> 为空，所以进入 <code>self.handle()</code></p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application.handle</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application.handle
 
-<span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">fn</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delegate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fvars</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+def handle(self):
+    fn, args = self._match(self.mapping, web.ctx.path)
+    return self._delegate(fn, self.fvars, args)
 </code></pre></div>
 <p>这个 <code>self.mapping</code> 是将我们的 <code>urls</code> 转化成两两一组后的列表。
 先看看 <code>_match</code>函数。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application._match</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application._match
 
-<span class="k">def</span> <span class="nf">_match</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">pat</span><span class="p">,</span> <span class="n">what</span> <span class="ow">in</span> <span class="n">mapping</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">what</span><span class="p">,</span> <span class="n">application</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">pat</span><span class="p">):</span>
-                <span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delegate_sub_application</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">what</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="bp">None</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">continue</span>
-        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">what</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
-            <span class="n">what</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">re_subm</span><span class="p">(</span><span class="s">&#39;^&#39;</span> <span class="o">+</span> <span class="n">pat</span> <span class="o">+</span> <span class="s">&#39;$&#39;</span><span class="p">,</span> <span class="n">what</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">re_compile</span><span class="p">(</span><span class="s">&#39;^&#39;</span> <span class="o">+</span> <span class="n">pat</span> <span class="o">+</span> <span class="s">&#39;$&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+def _match(self, mapping, value):
+    for pat, what in mapping:
+        if isinstance(what, application):
+            if value.startswith(pat):
+                f = lambda: self._delegate_sub_application(pat, what)
+                return f, None
+            else:
+                continue
+        elif isinstance(what, basestring):
+            what, result = utils.re_subm(&#39;^&#39; + pat + &#39;$&#39;, what, value)
+        else:
+            result = utils.re_compile(&#39;^&#39; + pat + &#39;$&#39;).match(value)
 
-        <span class="k">if</span> <span class="n">result</span><span class="p">:</span> <span class="c"># it&#39;&#39;s a match</span>
-            <span class="k">return</span> <span class="n">what</span><span class="p">,</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">groups</span><span class="p">()]</span>
-    <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
+        if result: # it&#39;&#39;s a match
+            return what, [x for x in result.groups()]
+    return None, None
 </code></pre></div>
 <p>可以看出这是一个循环，根据当前的 <code>value</code> ，即 <code>web.ctx.path</code>
 去查找 <code>urls</code> 中定义的对应项。what就是这个项。
@@ -710,44 +725,45 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 
 <p>当前的运行会选择第二个分支。
 即：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application._match</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application._match
 
-<span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">what</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
-    <span class="n">what</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">re_subm</span><span class="p">(</span><span class="s">&#39;^&#39;</span> <span class="o">+</span> <span class="n">pat</span> <span class="o">+</span> <span class="s">&#39;$&#39;</span><span class="p">,</span> <span class="n">what</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+elif isinstance(what, basestring):
+    what, result = utils.re_subm(&#39;^&#39; + pat + &#39;$&#39;, what, value)
 </code></pre></div>
 <p><code>utils.re_subm</code> 对路径中的正则表达式进行处理。<code>pat</code> 和 <code>what</code>
 是 <code>urls</code> 中对应的项， <code>value</code> 是当前的请求路径。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># utils.re_subm</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># utils.re_subm
 
-<span class="k">def</span> <span class="nf">re_subm</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Like re.sub, but returns the replacement _and_ the match object.</span>
+def re_subm(pat, repl, string):
+    &quot;&quot;&quot;
+    Like re.sub, but returns the replacement _and_ the match object.
 
-<span class="sd">        &gt;&gt;&gt; t, m = re_subm(&#39;g(oo+)fball&#39;, r&#39;f\\1lish&#39;, &#39;goooooofball&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; t</span>
-<span class="sd">        &#39;foooooolish&#39;</span>
-<span class="sd">        &gt;&gt;&gt; m.groups()</span>
-<span class="sd">        (&#39;oooooo&#39;,)</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">compiled_pat</span> <span class="o">=</span> <span class="n">re_compile</span><span class="p">(</span><span class="n">pat</span><span class="p">)</span>
-    <span class="n">proxy</span> <span class="o">=</span> <span class="n">_re_subm_proxy</span><span class="p">()</span>
-    <span class="n">compiled_pat</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">proxy</span><span class="o">.</span><span class="n">__call__</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">compiled_pat</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="p">,</span> <span class="n">string</span><span class="p">),</span> <span class="n">proxy</span><span class="o">.</span><span class="n">match</span>
+        &gt;&gt;&gt; t, m = re_subm(&#39;g(oo+)fball&#39;, r&#39;f\\1lish&#39;, &#39;goooooofball&#39;)
+        &gt;&gt;&gt; t
+        &#39;foooooolish&#39;
+        &gt;&gt;&gt; m.groups()
+        (&#39;oooooo&#39;,)
+    &quot;&quot;&quot;
+    compiled_pat = re_compile(pat)
+    proxy = _re_subm_proxy()
+    compiled_pat.sub(proxy.__call__, string)
+    return compiled_pat.sub(repl, string), proxy.match
+
 </code></pre></div>
 <p>这里 <code>re_compile(pat)</code> 的含义与 <code>re.complie(pat)</code> 类似，
 返回一个<code>RegexObject</code> 对象，只不过加入了 <code>Cache</code> 机制，避免多次执行 <code>re.complie</code> 调用。</p>
 
 <p>下面看这两行代码</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">proxy</span> <span class="o">=</span> <span class="n">_re_subm_proxy</span><span class="p">()</span>
-<span class="n">compiled_pat</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">proxy</span><span class="o">.</span><span class="n">__call__</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">proxy = _re_subm_proxy()
+compiled_pat.sub(proxy.__call__, string)
 </code></pre></div>
 <p>其中 <code>_re_subm_proxy</code> 定义为：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">class</span> <span class="nc">_re_subm_proxy</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">match</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">match</span><span class="p">):</span> 
-        <span class="bp">self</span><span class="o">.</span><span class="n">match</span> <span class="o">=</span> <span class="n">match</span>
-        <span class="k">return</span> <span class="s">&#39;&#39;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">class _re_subm_proxy:
+    def __init__(self): 
+        self.match = None
+    def __call__(self, match): 
+        self.match = match
+        return &#39;&#39;
 </code></pre></div>
 <p><code>compiled_pat</code> 会与 <code>string</code> 一起生成一个 <code>Match</code> 对象，
 这个对象会存储在一个 <code>_re_subm_proxy</code> 对象，即 <code>proxy</code>中
@@ -755,7 +771,7 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 我在想，为什么使用<code>search</code>直接生成一个 <code>Match</code>  对象然后返回呢？
 查了一下，这似乎与 <code>代理模式</code> 相关。但具体为什么还不知道。又查了很久，似乎又与 <code>弱引用</code>, 和之前的 Cache 相关,
 但是不确定。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">问题：为什么要使用代理类
+<div class="highlight"><pre><code class="language-text" data-lang="text">问题：为什么要使用代理类
 </code></pre></div>
 <p>最后的 <code>return</code> 语句返回两个值，其中
 <code>compiled_pat.sub (repl, string)</code> 是把 <code>string</code> 与 <code>pat</code>
@@ -765,10 +781,10 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 <a href="http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html">Python 正则表达式指南</a></p>
 
 <p>到这里，我们可能就明白了一开始的时候的那段：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application._match</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application._match
 
-<span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">what</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
-    <span class="n">what</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">re_subm</span><span class="p">(</span><span class="s">&#39;^&#39;</span> <span class="o">+</span> <span class="n">pat</span> <span class="o">+</span> <span class="s">&#39;$&#39;</span><span class="p">,</span> <span class="n">what</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+elif isinstance(what, basestring):
+    what, result = utils.re_subm(&#39;^&#39; + pat + &#39;$&#39;, what, value)
 </code></pre></div>
 <p>的含义，它的意思是如何 <code>urls</code> 里有一对 <code>(url,class)</code>
 其中 <code>url</code> 和　<code>class</code> 都是用正则表达式表示的，
@@ -776,7 +792,7 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 匹配，根据这个匹配生成相应的 <code>r_class</code>。</p>
 
 <p>看看刚才的示例就明白了：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&gt;&gt;&gt; t, m = re_subm(&#39;g(oo+)fball&#39;, r&#39;f\\1lish&#39;, &#39;goooooofball&#39;)
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; t, m = re_subm(&#39;g(oo+)fball&#39;, r&#39;f\\1lish&#39;, &#39;goooooofball&#39;)
 &gt;&gt;&gt; t
 &#39;foooooolish&#39;
 </code></pre></div>
@@ -787,10 +803,10 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 <code>req3</code>, ... , <code>reqN</code>, 需要处理。</p>
 
 <p>那么就可以在 <code>urls</code> 里加入</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">(r&#39;req(\d+)&#39;, r&#39;proc\1&#39;)
+<div class="highlight"><pre><code class="language-text" data-lang="text">(r&#39;req(\d+)&#39;, r&#39;proc\1&#39;)
 </code></pre></div>
 <p>这样，如果来了请求　<code>req2</code>，通过<code>re_subm</code>自然会解析成 <code>proc2</code>。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">&gt;&gt;&gt; t, m = re_subm(r&#39;req(\d+)&#39;, r&#39;proc\1&#39;, &#39;req2&#39;)
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt;&gt;&gt; t, m = re_subm(r&#39;req(\d+)&#39;, r&#39;proc\1&#39;, &#39;req2&#39;)
 &gt;&gt;&gt; t
 &#39;proc2&#39;
 &gt;&gt;&gt; m.group(0)
@@ -799,12 +815,12 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 &#39;2&#39;
 </code></pre></div>
 <p>总之，</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">fn</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delegate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fvars</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def handle(self):
+    fn, args = self._match(self.mapping, web.ctx.path)
+    return self._delegate(fn, self.fvars, args)
 </code></pre></div>
 <p><code>self._match</code> 返回的是请求 <code>request(&#39;/a&#39;)</code> 与</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">python
+<div class="highlight"><pre><code class="language-text" data-lang="text">python
         urls = (
             &quot;/a&quot;, &quot;redirect /hello/&quot;,
             &quot;/b/(.*)&quot;, r&quot;redirect /hello/\1&quot;,
@@ -817,95 +833,95 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 
 <p>好了，现在进入 <code>self._delegate</code>，看看解析后的
 <code>fn</code> 和　<code>args</code> 被如何处理。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">_delegate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">fvars</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[]):</span>
-    <span class="k">def</span> <span class="nf">handle_class</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
-        <span class="n">meth</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span>
-        <span class="k">if</span> <span class="n">meth</span> <span class="o">==</span> <span class="s">&#39;HEAD&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">meth</span><span class="p">):</span>
-            <span class="n">meth</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">meth</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">nomethod</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
-        <span class="n">tocall</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cls</span><span class="p">(),</span> <span class="n">meth</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">tocall</span><span class="p">(</span>\<span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def _delegate(self, f, fvars, args=[]):
+    def handle_class(cls):
+        meth = web.ctx.method
+        if meth == &#39;HEAD&#39; and not hasattr(cls, meth):
+            meth = &#39;GET&#39;
+        if not hasattr(cls, meth):
+            raise web.nomethod(cls)
+        tocall = getattr(cls(), meth)
+        return tocall(\*args)
 
-    <span class="k">def</span> <span class="nf">is_class</span><span class="p">(</span><span class="n">o</span><span class="p">):</span> <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">ClassType</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>
+    def is_class(o): return isinstance(o, (types.ClassType, type))
 
-    <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">notfound</span><span class="p">()</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">application</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="o">.</span><span class="n">handle_with_processors</span><span class="p">()</span>
-    <span class="k">elif</span> <span class="n">is_class</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">handle_class</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;redirect &#39;</span><span class="p">):</span>
-            <span class="n">url</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;GET&quot;</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;QUERY_STRING&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
-                    <span class="n">url</span> <span class="o">+=</span> <span class="s">&#39;?&#39;</span> <span class="o">+</span> <span class="n">x</span>
-            <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="s">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">mod</span><span class="p">,</span> <span class="n">cls</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-            <span class="n">mod</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;&#39;</span><span class="p">])</span>
-            <span class="n">cls</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">cls</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">cls</span> <span class="o">=</span> <span class="n">fvars</span><span class="p">[</span><span class="n">f</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">handle_class</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;__call__&#39;</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">f</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">web</span><span class="o">.</span><span class="n">notfound</span><span class="p">()</span>
+    if f is None:
+        raise web.notfound()
+    elif isinstance(f, application):
+        return f.handle_with_processors()
+    elif is_class(f):
+        return handle_class(f)
+    elif isinstance(f, basestring):
+        if f.startswith(&#39;redirect &#39;):
+            url = f.split(&#39; &#39;, 1)[1]
+            if web.ctx.method == &quot;GET&quot;:
+                x = web.ctx.env.get(&#39;QUERY_STRING&#39;, &#39;&#39;)
+                if x:
+                    url += &#39;?&#39; + x
+            raise web.redirect(url)
+        elif &#39;.&#39; in f:
+            mod, cls = f.rsplit(&#39;.&#39;, 1)
+            mod = __import__(mod, None, None, [&#39;&#39;])
+            cls = getattr(mod, cls)
+        else:
+            cls = fvars[f]
+        return handle_class(cls)
+    elif hasattr(f, &#39;__call__&#39;):
+        return f()
+    else:
+        return web.notfound()
 </code></pre></div>
 <p>一眼就可以看出有一个 <code>elif</code> 分支对 <code>redirect</code> 进行了处理。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;redirect &#39;</span><span class="p">):</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;GET&quot;</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;QUERY_STRING&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
-                <span class="n">url</span> <span class="o">+=</span> <span class="s">&#39;?&#39;</span> <span class="o">+</span> <span class="n">x</span>
-        <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">elif isinstance(f, basestring):
+    if f.startswith(&#39;redirect &#39;):
+        url = f.split(&#39; &#39;, 1)[1]
+        if web.ctx.method == &quot;GET&quot;:
+            x = web.ctx.env.get(&#39;QUERY_STRING&#39;, &#39;&#39;)
+            if x:
+                url += &#39;?&#39; + x
+        raise web.redirect(url)
 </code></pre></div>
 <p>分析出 <code>redirect /hello/</code> 中的 <code>/hello/</code>，再看看
 有没有查询字串，就是请求里有没有<code>?xx</code> 什么的。
 得到最终的 <code>url</code> ，转给 <code>redirect</code> 函数处理。
 直接找到 <code>webapi.py</code>，看到 <code>redirect</code> 的定义。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">class</span> <span class="nc">Redirect</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;A `301 Moved Permanently` redirect.&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s">&#39;301 Moved Permanently&#39;</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a `status` redirect to the new URL. </span>
-<span class="sd">        `url` is joined with the base URL so that things like </span>
-<span class="sd">        `redirect(&quot;about&quot;) will work properly.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">newloc</span> <span class="o">=</span> <span class="n">urlparse</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">class Redirect(HTTPError):
+    &quot;&quot;&quot;A `301 Moved Permanently` redirect.&quot;&quot;&quot;
+    def __init__(self, url, status=&#39;301 Moved Permanently&#39;, absolute=False):
+        &quot;&quot;&quot;
+        Returns a `status` redirect to the new URL. 
+        `url` is joined with the base URL so that things like 
+        `redirect(&quot;about&quot;) will work properly.
+        &quot;&quot;&quot;
+        newloc = urlparse.urljoin(ctx.path, url)
 
-        <span class="k">if</span> <span class="n">newloc</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">absolute</span><span class="p">:</span>
-                <span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">realhome</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">home</span>
-            <span class="n">newloc</span> <span class="o">=</span> <span class="n">home</span> <span class="o">+</span> <span class="n">newloc</span>
+        if newloc.startswith(&#39;/&#39;):
+            if absolute:
+                home = ctx.realhome
+            else:
+                home = ctx.home
+            newloc = home + newloc
 
-        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;text/html&#39;</span><span class="p">,</span>
-            <span class="s">&#39;Location&#39;</span><span class="p">:</span> <span class="n">newloc</span>
-        <span class="p">}</span>
-        <span class="n">HTTPError</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        headers = {
+            &#39;Content-Type&#39;: &#39;text/html&#39;,
+            &#39;Location&#39;: newloc
+        }
+        HTTPError.__init__(self, status, headers, &quot;&quot;)
 
-<span class="n">redirect</span> <span class="o">=</span> <span class="n">Redirect</span>
+redirect = Redirect
 </code></pre></div>
 <p>这时候传过来的 <code>url</code> 是 <code>/hello/</code>。 注意 <code>status</code>
 的默认值。
 先使用 <code>urljoin</code> 得到一个绝对路径。官网上给出的
 <code>urlparse.urljoin</code> 的例子是：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urljoin</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">urljoin</span><span class="p">(</span><span class="s">&#39;http://www.cwi.nl/</span><span class="si">%7E</span><span class="s">guido/Python.html&#39;</span><span class="p">,</span> <span class="s">&#39;FAQ.html&#39;</span><span class="p">)</span>
-<span class="s">&#39;http://www.cwi.nl/</span><span class="si">%7E</span><span class="s">guido/FAQ.html&#39;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">&gt;&gt;&gt; from urlparse import urljoin
+&gt;&gt;&gt; urljoin(&#39;http://www.cwi.nl/%7Eguido/Python.html&#39;, &#39;FAQ.html&#39;)
+&#39;http://www.cwi.nl/%7Eguido/FAQ.html&#39;
 </code></pre></div>
 <p>另外一个例子是针对第二个参数是绝对路径的情况的。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">urljoin</span><span class="p">(</span><span class="s">&#39;http://www.cwi.nl/</span><span class="si">%7E</span><span class="s">guido/Python.html&#39;</span><span class="p">,</span>
-<span class="o">...</span>         <span class="s">&#39;//www.python.org/</span><span class="si">%7E</span><span class="s">guido&#39;</span><span class="p">)</span>
-<span class="s">&#39;http://www.python.org/</span><span class="si">%7E</span><span class="s">guido&#39;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">&gt;&gt;&gt; urljoin(&#39;http://www.cwi.nl/%7Eguido/Python.html&#39;,
+...         &#39;//www.python.org/%7Eguido&#39;)
+&#39;http://www.python.org/%7Eguido&#39;
 </code></pre></div>
 <p>第二个例子的用法和我们当前的状况一致。所以得到的
 <code>newloc</code> 还是 <code>/hello/</code>。</p>
@@ -914,22 +930,22 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 新的　<code>newloc</code>。</p>
 
 <p>在 <code>application.py</code> 中， <code>load</code> 函数定义了一些 <code>path</code>:</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">ctx</span><span class="o">.</span><span class="n">homedomain</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">protocol</span> <span class="o">+</span> <span class="s">&#39;://&#39;</span> <span class="o">+</span> <span class="n">env</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;HTTP_HOST&#39;</span><span class="p">,</span> <span class="s">&#39;[unknown]&#39;</span><span class="p">)</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">homepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;REAL_SCRIPT_NAME&#39;</span><span class="p">,</span> <span class="n">env</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;SCRIPT_NAME&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">))</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">homedomain</span> <span class="o">+</span> <span class="n">ctx</span><span class="o">.</span><span class="n">homepath</span>
-<span class="c">#@@ home is changed when the request is handled to a sub-application.</span>
-<span class="c">#@@ but the real home is required for doing absolute redirects.</span>
-<span class="n">ctx</span><span class="o">.</span><span class="n">realhome</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">home</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">ctx.homedomain = ctx.protocol + &#39;://&#39; + env.get(&#39;HTTP_HOST&#39;, &#39;[unknown]&#39;)
+ctx.homepath = os.environ.get(&#39;REAL_SCRIPT_NAME&#39;, env.get(&#39;SCRIPT_NAME&#39;, &#39;&#39;))
+ctx.home = ctx.homedomain + ctx.homepath
+#@@ home is changed when the request is handled to a sub-application.
+#@@ but the real home is required for doing absolute redirects.
+ctx.realhome = ctx.home
 </code></pre></div>
 <p>从这可以看出，如果调用子程序　<code>ctx.home</code> 会改变，
 但是　<code>ctx.realhome</code> 不会变，它用来在 redirect 时
 生成绝对路径。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">if</span> <span class="n">newloc</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">absolute</span><span class="p">:</span>
-        <span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">realhome</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">home</span>
-    <span class="n">newloc</span> <span class="o">=</span> <span class="n">home</span> <span class="o">+</span> <span class="n">newloc</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">if newloc.startswith(&#39;/&#39;):
+    if absolute:
+        home = ctx.realhome
+    else:
+        home = ctx.home
+    newloc = home + newloc
 </code></pre></div>
 <p>现在可以理解了，如果 <code>absolute</code> 为真，那就用
 <code>ctx.realhome</code> 和 <code>newloc</code> 组成新值，
@@ -937,90 +953,91 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 可以转向到以子程序为基础的<code>url</code> 中。</p>
 
 <p>现在回到 <code>Redirect</code>。转到 <code>HTTPError</code>。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">class</span> <span class="nc">HTTPError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span> <span class="n">data</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
-        <span class="n">ctx</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">headers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">header</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="ne">Exception</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">class HTTPError(Exception):
+    def __init__(self, status, headers={}, data=&quot;&quot;):
+        ctx.status = status
+        for k, v in headers.items():
+            header(k, v)
+        self.data = data
+        Exception.__init__(self, status)
 </code></pre></div>
 <p><code>ctx.status</code> 被设置，调用 <code>Exception</code>。</p>
 
 <p>之后我们回到　<code>web.redirect(status)</code> 调用处。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">_delegate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">fvars</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">[]):</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def _delegate(self, f, fvars, args=[]):
 
-    <span class="o">...</span>
+    ...
 
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">basestring</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;redirect &#39;</span><span class="p">):</span>
-            <span class="n">url</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s">&quot;GET&quot;</span><span class="p">:</span>
-                <span class="n">x</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;QUERY_STRING&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">x</span><span class="p">:</span>
-                    <span class="n">url</span> <span class="o">+=</span> <span class="s">&#39;?&#39;</span> <span class="o">+</span> <span class="n">x</span>
-            <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    elif isinstance(f, basestring):
+        if f.startswith(&#39;redirect &#39;):
+            url = f.split(&#39; &#39;, 1)[1]
+            if web.ctx.method == &quot;GET&quot;:
+                x = web.ctx.env.get(&#39;QUERY_STRING&#39;, &#39;&#39;)
+                if x:
+                    url += &#39;?&#39; + x
+            raise web.redirect(url)
 
 
-    <span class="o">...</span>
+    ...
+
 </code></pre></div>
 <p>可以看出，这里把异常抛出。所以我们回到上一层，看看
 相应的处理。</p>
 
 <p>上一层：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">fn</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapping</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_delegate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fvars</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def handle(self):
+    fn, args = self._match(self.mapping, web.ctx.path)
+    return self._delegate(fn, self.fvars, args)
 </code></pre></div>
 <p>再上一层：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application.handle_with_processors</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application.handle_with_processors
 
-<span class="k">def</span> <span class="nf">handle_with_processors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="n">processors</span><span class="p">):</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">processors</span><span class="p">:</span>
-                <span class="n">p</span><span class="p">,</span> <span class="n">processors</span> <span class="o">=</span> <span class="n">processors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">processors</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
-                <span class="k">return</span> <span class="n">p</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">process</span><span class="p">(</span><span class="n">processors</span><span class="p">))</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle</span><span class="p">()</span>
-        <span class="k">except</span> <span class="n">web</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">:</span>
-            <span class="k">raise</span>
-        <span class="k">except</span> <span class="p">(</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">SystemExit</span><span class="p">):</span>
-            <span class="k">raise</span>
-        <span class="k">except</span><span class="p">:</span>
-            <span class="k">print</span> <span class="o">&gt;&gt;</span> <span class="n">web</span><span class="o">.</span><span class="n">debug</span><span class="p">,</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">internalerror</span><span class="p">()</span>
+def handle_with_processors(self):
+    def process(processors):
+        try:
+            if processors:
+                p, processors = processors[0], processors[1:]
+                return p(lambda: process(processors))
+            else:
+                return self.handle()
+        except web.HTTPError:
+            raise
+        except (KeyboardInterrupt, SystemExit):
+            raise
+        except:
+            print &gt;&gt; web.debug, traceback.format_exc()
+            raise self.internalerror()
 
-    <span class="c"># processors must be applied in the resvere order. (??)</span>
-    <span class="k">return</span> <span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">processors</span><span class="p">)</span>
+    # processors must be applied in the resvere order. (??)
+    return process(self.processors)
 </code></pre></div>
 <p>再上一层：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># web.application.wsgifunc.wsgi</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># web.application.wsgifunc.wsgi
 
-        <span class="k">def</span> <span class="nf">wsgi</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_resp</span><span class="p">):</span>
-            <span class="c"># clear threadlocal to avoid inteference of previous requests</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">()</span>
+        def wsgi(env, start_resp):
+            # clear threadlocal to avoid inteference of previous requests
+            self._cleanup()
 
-            <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
-                <span class="c"># allow uppercase methods only</span>
-                <span class="k">if</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">!=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">nomethod</span><span class="p">()</span>
+            self.load(env)
+            try:
+                # allow uppercase methods only
+                if web.ctx.method.upper() != web.ctx.method:
+                    raise web.nomethod()
 
-                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_with_processors</span><span class="p">()</span>
-                <span class="k">if</span> <span class="n">is_generator</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="n">peep</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">]</span>
-            <span class="k">except</span> <span class="n">web</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-                <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">data</span><span class="p">]</span>
+                result = self.handle_with_processors()
+                if is_generator(result):
+                    result = peep(result)
+                else:
+                    result = [result]
+            except web.HTTPError, e:
+                result = [e.data]
 
 
-            <span class="n">result</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">safestr</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+            result = web.safestr(iter(result))
 
-            <span class="n">status</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">headers</span>
+            status, headers = web.ctx.status, web.ctx.headers
 
-            <span class="n">start_resp</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+            start_resp(status, headers)
 </code></pre></div>
 <p>这里终于看到了对异常的处理。这里 <code>e.data</code> 为空。我
 们之前并没有设置这个值。</p>
@@ -1030,111 +1047,111 @@ result不为空，这说明找到了一个匹配。然后会返回匹配中
 下一句设置 <code>status</code> 和 <code>headers</code> 的值。之前</p>
 
 <p>我们已经看到 <code>web.ctx.status</code> 被设置了:</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">class</span> <span class="nc">HTTPError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{},</span> <span class="n">data</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
-        <span class="n">ctx</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
-        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">headers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">header</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="ne">Exception</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">class HTTPError(Exception):
+    def __init__(self, status, headers={}, data=&quot;&quot;):
+        ctx.status = status
+        for k, v in headers.items():
+            header(k, v)
+        self.data = data
+        Exception.__init__(self, status)
 </code></pre></div>
 <p><code>__init__</code> 中的 <code>status</code> 参数在上一层中设置。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">class</span> <span class="nc">Redirect</span><span class="p">(</span><span class="n">HTTPError</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;A `301 Moved Permanently` redirect.&quot;&quot;&quot;</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s">&#39;301 Moved Permanently&#39;</span><span class="p">,</span> <span class="n">absolute</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Returns a `status` redirect to the new URL. </span>
-<span class="sd">        `url` is joined with the base URL so that things like </span>
-<span class="sd">        `redirect(&quot;about&quot;) will work properly.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">newloc</span> <span class="o">=</span> <span class="n">urlparse</span><span class="o">.</span><span class="n">urljoin</span><span class="p">(</span><span class="n">ctx</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">class Redirect(HTTPError):
+    &quot;&quot;&quot;A `301 Moved Permanently` redirect.&quot;&quot;&quot;
+    def __init__(self, url, status=&#39;301 Moved Permanently&#39;, absolute=False):
+        &quot;&quot;&quot;
+        Returns a `status` redirect to the new URL. 
+        `url` is joined with the base URL so that things like 
+        `redirect(&quot;about&quot;) will work properly.
+        &quot;&quot;&quot;
+        newloc = urlparse.urljoin(ctx.path, url)
 
-        <span class="k">if</span> <span class="n">newloc</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">absolute</span><span class="p">:</span>
-                <span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">realhome</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">home</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="n">home</span>
-            <span class="n">newloc</span> <span class="o">=</span> <span class="n">home</span> <span class="o">+</span> <span class="n">newloc</span>
+        if newloc.startswith(&#39;/&#39;):
+            if absolute:
+                home = ctx.realhome
+            else:
+                home = ctx.home
+            newloc = home + newloc
 
-        <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s">&#39;text/html&#39;</span><span class="p">,</span>
-            <span class="s">&#39;Location&#39;</span><span class="p">:</span> <span class="n">newloc</span>
-        <span class="p">}</span>
-        <span class="n">HTTPError</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
+        headers = {
+            &#39;Content-Type&#39;: &#39;text/html&#39;,
+            &#39;Location&#39;: newloc
+        }
+        HTTPError.__init__(self, status, headers, &quot;&quot;)
 
-<span class="n">redirect</span> <span class="o">=</span> <span class="n">Redirect</span>
+redirect = Redirect
 </code></pre></div>
 <p>注意这里的　<code>status</code> 默认参数。</p>
 
 <p>现在再回到 </p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">wsgi</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_resp</span><span class="p">):</span>
-    <span class="c"># clear threadlocal to avoid inteference of previous requests</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def wsgi(env, start_resp):
+    # clear threadlocal to avoid inteference of previous requests
+    self._cleanup()
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+    self.load(env)
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c"># allow uppercase methods only</span>
-        <span class="k">if</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">!=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">method</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">nomethod</span><span class="p">()</span>
-
-
-        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_with_processors</span><span class="p">()</span>
-
-        <span class="k">if</span> <span class="n">is_generator</span><span class="p">(</span><span class="n">result</span><span class="p">):</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">peep</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">]</span>
-    <span class="k">except</span> <span class="n">web</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">data</span><span class="p">]</span>
+    try:
+        # allow uppercase methods only
+        if web.ctx.method.upper() != web.ctx.method:
+            raise web.nomethod()
 
 
-    <span class="n">result</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">safestr</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+        result = self.handle_with_processors()
 
-    <span class="n">status</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">ctx</span><span class="o">.</span><span class="n">headers</span>
+        if is_generator(result):
+            result = peep(result)
+        else:
+            result = [result]
+    except web.HTTPError, e:
+        result = [e.data]
 
-    <span class="n">start_resp</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">cleanup</span><span class="p">():</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cleanup</span><span class="p">()</span>
-        <span class="k">yield</span> <span class="s">&#39;&#39;</span> <span class="c"># force this function to be a generator</span>
+    result = web.safestr(iter(result))
 
-    <span class="k">return</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">cleanup</span><span class="p">())</span>
+    status, headers = web.ctx.status, web.ctx.headers
+
+    start_resp(status, headers)
+
+    def cleanup():
+        self._cleanup()
+        yield &#39;&#39; # force this function to be a generator
+
+    return itertools.chain(result, cleanup())
 </code></pre></div>
 <p>随后调用　<code>start_resp</code> ，对 <code>status</code>, <code>headers</code>
 进行处理。我们再回到上一层。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c">#web.application.request</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">#web.application.request
 
-<span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">localpart</span><span class="o">=</span><span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
-                <span class="n">host</span><span class="o">=</span><span class="s">&quot;0.0.0.0:8080&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">https</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+def request(self, localpart=&#39;/&#39;, method=&#39;GET&#39;, data=None,
+                host=&quot;0.0.0.0:8080&quot;, headers=None, https=False, **kw):
 
-        <span class="o">...</span>
+        ...
 
-        <span class="n">response</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">storage</span><span class="p">()</span>
-        <span class="k">def</span> <span class="nf">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">headers</span><span class="p">):</span>
-            <span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
-            <span class="n">response</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
-            <span class="n">response</span><span class="o">.</span><span class="n">header_items</span> <span class="o">=</span> <span class="n">headers</span>
-        <span class="n">response</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wsgifunc</span><span class="p">()(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">response</span>
+        response = web.storage()
+        def start_response(status, headers):
+            response.status = status
+            response.headers = dict(headers)
+            response.header_items = headers
+        response.data = &quot;&quot;.join(self.wsgifunc()(env, start_response))
+        return response
 </code></pre></div>
 <p>这时候，<code>response</code> 中的 <code>stauts</code>　会设置好。
 最后，返回最初的调用。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">testRedirect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-    <span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s">&quot;/a&quot;</span><span class="p">,</span> <span class="s">&quot;redirect /hello/&quot;</span><span class="p">,</span>
-        <span class="s">&quot;/b/(.*)&quot;</span><span class="p">,</span> <span class="s">r&quot;redirect /hello/\1&quot;</span><span class="p">,</span>
-        <span class="s">&quot;/hello/(.*)&quot;</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span>
-    <span class="p">)</span>
-    <span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">application</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
-    <span class="k">class</span> <span class="nc">hello</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span> 
-            <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="s">&#39;world&#39;</span>
-            <span class="k">return</span> <span class="s">&quot;hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def testRedirect(self):
+    urls = (
+        &quot;/a&quot;, &quot;redirect /hello/&quot;,
+        &quot;/b/(.*)&quot;, r&quot;redirect /hello/\1&quot;,
+        &quot;/hello/(.*)&quot;, &quot;hello&quot;
+    )
+    app = web.application(urls, locals())
+    class hello:
+        def GET(self, name): 
+            name = name or &#39;world&#39;
+            return &quot;hello &quot; + name
 
-    <span class="n">response</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">&#39;/a&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="s">&#39;301 Moved Permanently&#39;</span><span class="p">)</span>
-    <span class="bp">self</span><span class="o">.</span><span class="n">assertEquals</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s">&#39;Location&#39;</span><span class="p">],</span> <span class="s">&#39;http://0.0.0.0:8080/hello/&#39;</span><span class="p">)</span>
+    response = app.request(&#39;/a&#39;)
+    self.assertEquals(response.status, &#39;301 Moved Permanently&#39;)
+    self.assertEquals(response.headers[&#39;Location&#39;], &#39;http://0.0.0.0:8080/hello/&#39;)
 </code></pre></div>
 <p><code>self.assertEquals</code> 会验证 <code>response.status</code> 的值。</p>
 

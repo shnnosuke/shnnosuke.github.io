@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -549,32 +563,35 @@
 <p>函数内部的static变量，关键在于生命周期持久，他的值不会随着函数调用的结束而消失，下一次调用时，static变量的值，还保留着上次调用后的内容。</p>
 
 <p>函数外部的static变量，以及static函数，关键在于私有性，它们只属于当前文件，其它文件看不到他们。例如：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cm">/* test_static1.c */</span>
-<span class="cp">#include &lt;stdio.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">/* test_static1.c */
+#include &lt;stdio.h&gt;
 
-<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
+void foo() {
+}
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
+static void bar() {
+}
 
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+int i = 3;
+static int j = 4;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;%d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;%d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cm">/* test_static2.c */</span>
-<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
+int main(void){
+    printf (&quot;%d \n&quot;, i);
+    printf (&quot;%d \n&quot;, j);
+    return 0;
+}
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-c" data-lang="c">/* test_static2.c */
+void foo() {
+}
+
+static void bar() {
+}
+
+int i = 1;
+static int j = 2;
+
 </code></pre></div>
 <p>将两个文件一起编译</p>
 
@@ -583,7 +600,7 @@
 </blockquote>
 
 <p>编译器会提示：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/tmp/ccuerF9V.o: In function `foo&#39;:
+<div class="highlight"><pre><code class="language-text" data-lang="text">/tmp/ccuerF9V.o: In function `foo&#39;:
 test_static2.c:(.text+0x0): multiple definition of `foo&#39;
 /tmp/cc9qncdw.o:test_static1.c:(.text+0x0): first defined here
 /tmp/ccuerF9V.o:(.data+0x0): multiple definition of `i&#39;
@@ -639,32 +656,35 @@ collect2: ld returned 1 exit status
 <p>要解释这个问题，我们首先要理解问题本身。这个问题的本质其实是，当我们遇到一个变量或者函数时，我们去哪里寻找它，static变量/函数与普通变量/函数的寻找方式有什么不同。</p>
 
 <p>我们回到刚才的例子，这一次，仔细地观察编译链接时的提示信息：</p>
-<div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cm">/* test_static1.c */</span>
-<span class="cp">#include &lt;stdio.h&gt;</span>
+<div class="highlight"><pre><code class="language-c" data-lang="c">/* test_static1.c */
+#include &lt;stdio.h&gt;
 
-<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
+void foo() {
+}
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
+static void bar() {
+}
 
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+int i = 3;
+static int j = 4;
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;%d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
-    <span class="n">printf</span> <span class="p">(</span><span class="s">&quot;%d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><div class="highlight"><pre><code class="c language-c" data-lang="c"><span class="cm">/* test_static2.c */</span>
-<span class="kt">void</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
+int main(void){
+    printf (&quot;%d \n&quot;, i);
+    printf (&quot;%d \n&quot;, j);
+    return 0;
+}
 
-<span class="k">static</span> <span class="kt">void</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{</span>
-<span class="p">}</span>
 
-<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">static</span> <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-c" data-lang="c">/* test_static2.c */
+void foo() {
+}
+
+static void bar() {
+}
+
+int i = 1;
+static int j = 2;
+
 </code></pre></div>
 <p>将两个文件一起编译</p>
 
@@ -673,7 +693,7 @@ collect2: ld returned 1 exit status
 </blockquote>
 
 <p>编译器会提示：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/tmp/ccuerF9V.o: In function `foo&#39;:
+<div class="highlight"><pre><code class="language-text" data-lang="text">/tmp/ccuerF9V.o: In function `foo&#39;:
 test_static2.c:(.text+0x0): multiple definition of `foo&#39;
 /tmp/cc9qncdw.o:test_static1.c:(.text+0x0): first defined here
 /tmp/ccuerF9V.o:(.data+0x0): multiple definition of `i&#39;
@@ -701,7 +721,7 @@ collect2: ld returned 1 exit status
 </ul>
 
 <p>现在编译一下，然后用GNU READELF工具看一下符号表。</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">    $ gcc -c test_static1.c -o test_static1.o
+<div class="highlight"><pre><code class="language-text" data-lang="text">    $ gcc -c test_static1.c -o test_static1.o
     $ readelf -s test_static1.o
 
 Symbol table &#39;.symtab&#39; contains 15 entries:

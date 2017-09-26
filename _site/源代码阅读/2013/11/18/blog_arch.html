@@ -68,32 +68,8 @@
   <ul class="category-list">
       
             
-                <li style="background-color: #444">
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
                 <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li style="background-color: #444">
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -535,7 +549,7 @@
 <h1>web.py 项目之 blog</h1>
 
 <h2>目录树</h2>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">src/
+<div class="highlight"><pre><code class="language-text" data-lang="text">src/
 ├── blog.py
 ├── model.py
 ├── schema.sql
@@ -558,97 +572,97 @@
 <h3>控制模块</h3>
 
 <p>控制模块包括 blog.py</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="sd">&quot;&quot;&quot; Basic blog using webpy 0.3 &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">web</span>
-<span class="kn">import</span> <span class="nn">model</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">&quot;&quot;&quot; Basic blog using webpy 0.3 &quot;&quot;&quot;
+import web
+import model
 
-<span class="c">### Url mappings</span>
+### Url mappings
 
-<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;Index&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/view/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;View&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/new&#39;</span><span class="p">,</span> <span class="s">&#39;New&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/delete/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;Delete&#39;</span><span class="p">,</span>
-    <span class="s">&#39;/edit/(\d+)&#39;</span><span class="p">,</span> <span class="s">&#39;Edit&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-
-
-<span class="c">### Templates</span>
-<span class="n">t_globals</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&#39;datestr&#39;</span><span class="p">:</span> <span class="n">web</span><span class="o">.</span><span class="n">datestr</span>
-<span class="p">}</span>
-<span class="n">render</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="s">&#39;templates&#39;</span><span class="p">,</span> <span class="n">base</span><span class="o">=</span><span class="s">&#39;base&#39;</span><span class="p">,</span> <span class="nb">globals</span><span class="o">=</span><span class="n">t_globals</span><span class="p">)</span>
+urls = (
+    &#39;/&#39;, &#39;Index&#39;,
+    &#39;/view/(\d+)&#39;, &#39;View&#39;,
+    &#39;/new&#39;, &#39;New&#39;,
+    &#39;/delete/(\d+)&#39;, &#39;Delete&#39;,
+    &#39;/edit/(\d+)&#39;, &#39;Edit&#39;,
+)
 
 
-<span class="k">class</span> <span class="nc">Index</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Show page &quot;&quot;&quot;</span>
-        <span class="n">posts</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_posts</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">posts</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">View</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; View single post &quot;&quot;&quot;</span>
-        <span class="n">post</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_post</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
-        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
+### Templates
+t_globals = {
+    &#39;datestr&#39;: web.datestr
+}
+render = web.template.render(&#39;templates&#39;, base=&#39;base&#39;, globals=t_globals)
 
 
-<span class="k">class</span> <span class="nc">New</span><span class="p">:</span>
+class Index:
 
-    <span class="n">form</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
-        <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">Textbox</span><span class="p">(</span><span class="s">&#39;title&#39;</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">notnull</span><span class="p">,</span> 
-            <span class="n">size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s">&quot;Post title:&quot;</span><span class="p">),</span>
-        <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">Textarea</span><span class="p">(</span><span class="s">&#39;content&#39;</span><span class="p">,</span> <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">notnull</span><span class="p">,</span> 
-            <span class="n">rows</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
-            <span class="n">description</span><span class="o">=</span><span class="s">&quot;Post content:&quot;</span><span class="p">),</span>
-        <span class="n">web</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s">&#39;Post entry&#39;</span><span class="p">),</span>
-    <span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">form</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">form</span><span class="o">.</span><span class="n">validates</span><span class="p">():</span>
-            <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">new_post</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">seeother</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+    def GET(self):
+        &quot;&quot;&quot; Show page &quot;&quot;&quot;
+        posts = model.get_posts()
+        return render.index(posts)
 
 
-<span class="k">class</span> <span class="nc">Delete</span><span class="p">:</span>
+class View:
 
-    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">del_post</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
-        <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">seeother</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
-
-
-<span class="k">class</span> <span class="nc">Edit</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
-        <span class="n">post</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_post</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
-        <span class="n">form</span> <span class="o">=</span> <span class="n">New</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
-        <span class="n">form</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">post</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">edit</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">form</span><span class="p">)</span>
+    def GET(self, id):
+        &quot;&quot;&quot; View single post &quot;&quot;&quot;
+        post = model.get_post(int(id))
+        return render.view(post)
 
 
-    <span class="k">def</span> <span class="nf">POST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
-        <span class="n">form</span> <span class="o">=</span> <span class="n">New</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
-        <span class="n">post</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_post</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">form</span><span class="o">.</span><span class="n">validates</span><span class="p">():</span>
-            <span class="k">return</span> <span class="n">render</span><span class="o">.</span><span class="n">edit</span><span class="p">(</span><span class="n">post</span><span class="p">,</span> <span class="n">form</span><span class="p">)</span>
-        <span class="n">model</span><span class="o">.</span><span class="n">update_post</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">),</span> <span class="n">form</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">form</span><span class="o">.</span><span class="n">d</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
-        <span class="k">raise</span> <span class="n">web</span><span class="o">.</span><span class="n">seeother</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+class New:
+
+    form = web.form.Form(
+        web.form.Textbox(&#39;title&#39;, web.form.notnull, 
+            size=30,
+            description=&quot;Post title:&quot;),
+        web.form.Textarea(&#39;content&#39;, web.form.notnull, 
+            rows=30, cols=80,
+            description=&quot;Post content:&quot;),
+        web.form.Button(&#39;Post entry&#39;),
+    )
+
+    def GET(self):
+        form = self.form()
+        return render.new(form)
+
+    def POST(self):
+        form = self.form()
+        if not form.validates():
+            return render.new(form)
+        model.new_post(form.d.title, form.d.content)
+        raise web.seeother(&#39;/&#39;)
 
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">application</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
+class Delete:
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    def POST(self, id):
+        model.del_post(int(id))
+        raise web.seeother(&#39;/&#39;)
+
+
+class Edit:
+
+    def GET(self, id):
+        post = model.get_post(int(id))
+        form = New.form()
+        form.fill(post)
+        return render.edit(post, form)
+
+
+    def POST(self, id):
+        form = New.form()
+        post = model.get_post(int(id))
+        if not form.validates():
+            return render.edit(post, form)
+        model.update_post(int(id), form.d.title, form.d.content)
+        raise web.seeother(&#39;/&#39;)
+
+
+app = web.application(urls, globals())
+
+if __name__ == &#39;__main__&#39;:
+    app.run()
 </code></pre></div>
 <p>可以看出，主要的逻辑，即对各个请求的处理，都在这个模块中，
 包括表单的生成，数据的获取，以及对模板引擎的调用。这个
@@ -661,82 +675,85 @@
 需要在控制模块中进行设定。</p>
 
 <p>templates/base.html  </p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">$def with (page)
+<div class="highlight"><pre><code class="language-html" data-lang="html">$def with (page)
 
-<span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;title&gt;</span>My Blog<span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;style&gt;</span>
-        <span class="nf">#menu</span> <span class="p">{</span>
-            <span class="k">width</span><span class="o">:</span> <span class="m">200px</span><span class="p">;</span>
-            <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="nt">&lt;/style&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My Blog&lt;/title&gt;
+    &lt;style&gt;
+        #menu {
+            width: 200px;
+            float: right;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-<span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;menu&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/new&quot;</span><span class="nt">&gt;</span>New Post<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
+&lt;ul id=&quot;menu&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/new&quot;&gt;New Post&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 $:page
 
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre></div>
 <p><code>base.html</code> 为每个文件提供都基本的模板，其它文件只负责自己的那
 一块内容。</p>
 
 <p>templates/index.html</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">$def with (posts)
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+$def with (posts)
 
-<span class="nt">&lt;h1&gt;</span>Blog posts<span class="nt">&lt;/h1&gt;</span>
+&lt;h1&gt;Blog posts&lt;/h1&gt;
 
-<span class="nt">&lt;ul&gt;</span>
+&lt;ul&gt;
 $for post in posts:
-    <span class="nt">&lt;li&gt;</span>
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/view/$post.id&quot;</span><span class="nt">&gt;</span>$post.title<span class="nt">&lt;/a&gt;</span> 
+    &lt;li&gt;
+        &lt;a href=&quot;/view/$post.id&quot;&gt;$post.title&lt;/a&gt; 
         from $datestr(post.posted_on) 
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/edit/$post.id&quot;</span><span class="nt">&gt;</span>Edit<span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
+        &lt;a href=&quot;/edit/$post.id&quot;&gt;Edit&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
 </code></pre></div>
 <p><code>index.html</code> 负责文章列表的显示。</p>
 
 <p>templates/new.html  </p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">$def with (form)
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+$def with (form)
 
 
-<span class="nt">&lt;h1&gt;</span>New Blog Post<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+&lt;h1&gt;New Blog Post&lt;/h1&gt;
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
 $:form.render()
-<span class="nt">&lt;/form&gt;</span>
+&lt;/form&gt;
 </code></pre></div>
 <p><code>new.html</code> 负责新建文件页面。</p>
 
 <p>templates/edit.html</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">$def with (post, form)
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+$def with (post, form)
 
-<span class="nt">&lt;h1&gt;</span>Edit $form.d.title<span class="nt">&lt;/h1&gt;</span>
+&lt;h1&gt;Edit $form.d.title&lt;/h1&gt;
 
-<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;
 $:form.render()
-<span class="nt">&lt;/form&gt;</span>
+&lt;/form&gt;
 
 
-<span class="nt">&lt;h2&gt;</span>Delete post<span class="nt">&lt;/h2&gt;</span>
-<span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/delete/$post.id&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Delete post&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/form&gt;</span>
+&lt;h2&gt;Delete post&lt;/h2&gt;
+&lt;form action=&quot;/delete/$post.id&quot; method=&quot;post&quot;&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Delete post&quot;/&gt;
+&lt;/form&gt;
 </code></pre></div>
 <p><code>edit.html</code> 负责文章的编辑页面。</p>
 
 <p>templates/view.html</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">$def with (post)
+<div class="highlight"><pre><code class="language-html" data-lang="html">$def with (post)
 
-<span class="nt">&lt;h1&gt;</span>$post.title<span class="nt">&lt;/h1&gt;</span>
-$datestr(post.posted_on)<span class="nt">&lt;br/&gt;</span>
+&lt;h1&gt;$post.title&lt;/h1&gt;
+$datestr(post.posted_on)&lt;br/&gt;
 
 $post.content
 </code></pre></div>
@@ -747,7 +764,7 @@ $post.content
 <p>数据模块包含两个文件　<code>schema.sql</code> 和 <code>model.py</code></p>
 
 <p>schema.sql  </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">CREATE TABLE entries (
+<div class="highlight"><pre><code class="language-text" data-lang="text">CREATE TABLE entries (
     id INT AUTO_INCREMENT,
     title TEXT,
     content TEXT,
@@ -758,28 +775,29 @@ $post.content
 <p><code>schema.sql</code> 包含了数据库中表的格式</p>
 
 <p>model.py</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="kn">import</span> <span class="nn">web</span><span class="o">,</span> <span class="nn">datetime</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">
+import web, datetime
 
-<span class="n">db</span> <span class="o">=</span> <span class="n">web</span><span class="o">.</span><span class="n">database</span><span class="p">(</span><span class="n">dbn</span><span class="o">=</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">db</span><span class="o">=</span><span class="s">&#39;miniblog&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;root&#39;</span><span class="p">,</span> <span class="n">pw</span><span class="o">=</span><span class="s">&quot;7102155&quot;</span><span class="p">)</span>
+db = web.database(dbn=&#39;mysql&#39;, db=&#39;miniblog&#39;, user=&#39;root&#39;, pw=&quot;7102155&quot;)
 
-<span class="k">def</span> <span class="nf">get_posts</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">&#39;entries&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s">&#39;id DESC&#39;</span><span class="p">)</span>
+def get_posts():
+    return db.select(&#39;entries&#39;, order=&#39;id DESC&#39;)
 
-<span class="k">def</span> <span class="nf">get_post</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">db</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s">&#39;entries&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&#39;id=$id&#39;</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="nb">locals</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="bp">None</span>
+def get_post(id):
+    try:
+        return db.select(&#39;entries&#39;, where=&#39;id=$id&#39;, vars=locals())[0]
+    except IndexError:
+        return None
 
-<span class="k">def</span> <span class="nf">new_post</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s">&#39;entries&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">posted_on</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">())</span>
+def new_post(title, text):
+    db.insert(&#39;entries&#39;, title=title, content=text, posted_on=datetime.datetime.utcnow())
 
-<span class="k">def</span> <span class="nf">del_post</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s">&#39;entries&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&quot;id=$id&quot;</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="nb">locals</span><span class="p">())</span>
+def del_post(id):
+    db.delete(&#39;entries&#39;, where=&quot;id=$id&quot;, vars=locals())
 
-<span class="k">def</span> <span class="nf">update_post</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
-    <span class="n">db</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="s">&#39;entries&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s">&quot;id=$id&quot;</span><span class="p">,</span> <span class="nb">vars</span><span class="o">=</span><span class="nb">locals</span><span class="p">(),</span>
-        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="n">text</span><span class="p">)</span>
+def update_post(id, title, text):
+    db.update(&#39;entries&#39;, where=&quot;id=$id&quot;, vars=locals(),
+        title=title, content=text)
 </code></pre></div>
 <p><code>model.py</code> 包含了数据库连接的创建与数据库操作的具体细节。
 此模块中的函数被控制模块调用，从数据库中读取数据。</p>

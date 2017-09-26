@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -141,13 +129,25 @@
       
             
                 <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -543,8 +557,8 @@
 GitHub 和 Jekyll，我们可以打造自己的独立博客，你可以自由地定制网站的风格，并且这
 一切都是免费的。</p>
 
-<p>这是我在GitHub上自己建立的<a href="http://shnnosuke.github.io/">博客</a>
-及<a href="https://github.com/shnnosuke/shnnosuke.github.io">源代码</a>
+<p>这是我在GitHub上自己建立的<a href="http://minixalpha.github.io/">博客</a>
+及<a href="https://github.com/minixalpha/minixalpha.github.io">源代码</a>
 （两个分支），在下文的讲解中，你可以随时查看博客的源代码，以便有直观的认识。</p>
 
 <p>网站截图：</p>
@@ -584,7 +598,7 @@ GitHub 和 Jekyll 搭建独立博客非常好的入门文章，<strong>强烈建
 有一个项目，名为 <code>username.github.io</code>(固定格式，username与账号名一致)，
 项目分支名为 <code>master</code>(固定)，这个分支有着类似下面的
 目录结构:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.
+<div class="highlight"><pre><code class="language-text" data-lang="text">.
 ├── index.html
 ├── _config.yml
 ├── assets
@@ -646,7 +660,7 @@ GitHub，怎么办呢怎么办呢？</p>
 名为 <code>_site</code> 的目录，这个就是Jeklly在本地解析时最终生成的静态网站，我们
 把其中的内容上传到 GitHub 的项目中就可以了。例如，我在GitHub上的网站，
 既解析后的 <code>_site</code> 目录，大概是这样的:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.
+<div class="highlight"><pre><code class="language-text" data-lang="text">.
 
 ├── index.html
 ├── 2013
@@ -674,7 +688,7 @@ GitHub，怎么办呢怎么办呢？</p>
 </ul>
 
 <p>如果你不使用插件，那么只需要维护一个分支就好:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">- username/username.github.io 的 master 分支
+<div class="highlight"><pre><code class="language-text" data-lang="text">- username/username.github.io 的 master 分支
 - username/blog 的 gh-pages 分支
 </code></pre></div>
 <p>其中 <code>username</code> 是你的 GitHub 帐号。</p>
@@ -696,19 +710,23 @@ GitHub，怎么办呢怎么办呢？</p>
 就自动将文章发布到 GitHub 上。</p>
 
 <p>Makefile 内容如下：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">deploy:
-    git checkout master
+<div class="highlight"><pre><code class="language-text" data-lang="text">
+deploy:
+    git checkout source
+    jekyll build
     git add -A
-    git commit -m &quot;deploy blog&quot;
+    git commit -m &quot;update source&quot;
     cp -r _site/ /tmp/
-    git checkout gh-pages
+    git checkout master
     rm -r ./*
     cp -r /tmp/_site/* ./
     git add -A
     git commit -m &quot;deploy blog&quot;
-    git push origin gh-pages
-    git checkout master
+    git push origin master
+    git checkout source
     echo &quot;deploy succeed&quot;
+    git push origin source
+    echo &quot;push source&quot;
 </code></pre></div>
 <p>下面的内容涉及源代码，如果需要进一步学习，或者有问题，可以在 
 <a href="http://jekyllrb.com/">Jeklly 官网</a>上找到更详细的解释，或者在评论中留言。</p>
@@ -716,7 +734,7 @@ GitHub，怎么办呢怎么办呢？</p>
 <h2>源代码</h2>
 
 <p>再来看一下这个目录结构：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">.
+<div class="highlight"><pre><code class="language-text" data-lang="text">.
 ├── _config.yml
 ├── index.html
 ├── assets
@@ -737,7 +755,7 @@ GitHub，怎么办呢怎么办呢？</p>
 
 <p>这是针对 Jekyll 的<a href="http://jekyllrb.com/docs/configuration/">配置文件</a>，
 决定了 Jekyll 如何解析网站的源代码,下面是一个示例：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">baseurl: /StrayBirds
+<div class="highlight"><pre><code class="language-text" data-lang="text">baseurl: /StrayBirds
 markdown: redcarpet
 safe: false
 pygments: true
@@ -761,27 +779,30 @@ paginate 指定了一页有几篇文章，页数太多时，我们可以将文�
 <p>这个目录存放着一些网页模板文件，为网站所有网页提供一个基本模板，这样
 每个网页只需要关心自己的内容就好，其它的都由模板决定。例如，这个目录下的
 default.html 文件：</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&#39;utf-8&#39;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;title&gt;</span>{{ page.title }}<span class="nt">&lt;/title&gt;</span>
-  <span class="nt">&lt;/head&gt;</span>
-  <span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;header&gt;</span>
-    <span class="nt">&lt;/header&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&#39;utf-8&#39;&gt;
+    &lt;title&gt;{{ page.title }}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;
+    &lt;/header&gt;
 
-    <span class="nt">&lt;aside&gt;</span>
-    <span class="nt">&lt;/aside&gt;</span>
+    &lt;aside&gt;
+    &lt;/aside&gt;
 
-    <span class="nt">&lt;article&gt;</span>
+    &lt;article&gt;
 {{ content }}
-    <span class="nt">&lt;/article&gt;</span>
+    &lt;/article&gt;
 
-    <span class="nt">&lt;footer&gt;</span>
-    <span class="nt">&lt;/footer&gt;</span>
-  <span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+    &lt;footer&gt;
+    &lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+
 </code></pre></div>
 <p>可以看出，这个文件就是所有页面共有的东西，每个页面的具体内容会被填充在
 `<code>中，注意这个 content 两边的标记，这是一种叫 
@@ -796,21 +817,21 @@ default.html 文件：</p>
 
 <p>这是网站的首页，访问 <code>http://username.github.io</code> 时，会指向 
 <code>http://username.github.io/index.html</code>，我们看一下基本内容：</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">---
+<div class="highlight"><pre><code class="language-html" data-lang="html">---
 layout: default
 title: 首页
 ---
 
 
-<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;post-list&quot;</span><span class="nt">&gt;</span>
+&lt;ul class=&quot;post-list&quot;&gt;
     {% for post in site.posts %}
-        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;{{site.baseurl}}{{post.url}}&quot;</span><span class="nt">&gt;</span> {{ post.title }}  <span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;br&gt;</span>
-        {{ post.date | date: &quot;%F&quot; }} <span class="nt">&lt;br&gt;</span>
-        {{ post.category }} <span class="nt">&lt;br&gt;</span>
+        &lt;a href=&quot;{{site.baseurl}}{{post.url}}&quot;&gt; {{ post.title }}  &lt;/a&gt; &lt;br&gt;
+        {{ post.date | date: &quot;%F&quot; }} &lt;br&gt;
+        {{ post.category }} &lt;br&gt;
         {{ post.excerpt }} 
     {% endfor %}
 
-<span class="nt">&lt;/ul&gt;</span>
+&lt;/ul&gt;
 </code></pre></div>
 <p>注意，文件开头的描述，我们称之为 <a href="http://jekyllrb.com/docs/frontmatter/">front-matter</a>，
 是对当前文件的一种描述，这里
@@ -828,11 +849,11 @@ title: 首页
 </ul>
 
 <p>这个目录存放我们的所有博客文章，他们的名字有统一的格式：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">YEAR-MONTH-DAY-title.MARKUP
+<div class="highlight"><pre><code class="language-text" data-lang="text">YEAR-MONTH-DAY-title.MARKUP
 </code></pre></div>
 <p>例如，2014-02-15-github-jeklly.md，这个文件名会被解析，前面的 <code>index.html</code> 中，
 <code>post.date</code> 的值就由这里文件名中的日期而来。下面，我们看看一篇文章的内容示例：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">---
+<div class="highlight"><pre><code class="language-text" data-lang="text">---
 layout: default
 title: 使用 Markdown
 category: 工具
@@ -859,10 +880,12 @@ comments: true
 </ul>
 
 <p>这个文件中，存放着一些模块文件，例如 <code>categories.ext</code>，其它文件可以通过 </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">{% include categories.ext %}
+<div class="highlight"><pre><code class="language-text" data-lang="text">
+{% include categories.ext %}
+
 </code></pre></div>
 <p>来引用这个文件的内容，方便代码模块化和重用。我的博客
-<a href="http://shnnosuke.github.io/">主页</a>上的
+<a href="http://minixalpha.github.io/">主页</a>上的
 分类，归档，这些模块的代码都是通过这种方式引用的。</p>
 
 <ul>
@@ -895,7 +918,7 @@ comments: true
 这样，这个插件会在Jekyll解析网站时，生成相应categories目录，目录下是各个分类，
 每个分类下都有一个 <code>index.html</code> 文件，这个文件是根据模板文件 category</em>archive.html
 生成的，例如：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">_site/categories/
+<div class="highlight"><pre><code class="language-text" data-lang="text">_site/categories/
 ├── 工具
 │   └── index.html
 ├── 思想
@@ -934,7 +957,7 @@ _posts目录下的文章日期，为每个月生成一个页面。</li>
 <p>评论功能需要使用外挂，我使用的是 <a href="http://disqus.com/">DISQUS</a>, 注册
 之后，将评论区的一段代码放在你需要使用评论功能的页面上, 
 然后，通过在页面的 front-matter 部分使用 </p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">comments: true
+<div class="highlight"><pre><code class="language-text" data-lang="text">comments: true
 </code></pre></div>
 <p>启用评论。 </p>
 

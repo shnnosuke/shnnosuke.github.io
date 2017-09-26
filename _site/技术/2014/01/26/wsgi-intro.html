@@ -69,25 +69,13 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
+                <a href="/categories/工具"> 工具 (4) </a>
                 </li>
             
       
@@ -99,43 +87,7 @@
       
             
                 <li>
-                <a href="/categories/工具"> 工具 (4) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
-                </li>
-            
-      
-            
-                <li>
                 <a href="/categories/c语言"> c语言 (4) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/读书"> 读书 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/英语"> 英语 (10) </a>
                 </li>
             
       
@@ -147,7 +99,55 @@
       
             
                 <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/读书"> 读书 (1) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/生活"> 生活 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/英语"> 英语 (10) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/科研"> 科研 (6) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -557,7 +571,7 @@
 <h2>应用程序</h2>
 
 <p>WSGI规定：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">1. 应用程序需要是一个可调用的对象
+<div class="highlight"><pre><code class="language-text" data-lang="text">1. 应用程序需要是一个可调用的对象
 </code></pre></div>
 <p>在Python中:</p>
 
@@ -568,56 +582,56 @@
 </ul>
 
 <p>同时，WSGI规定：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">2. 可调用对象接收两个参数
+<div class="highlight"><pre><code class="language-text" data-lang="text">2. 可调用对象接收两个参数
 </code></pre></div>
 <p>这样，如果这个对象是函数的话，它看起来要是这个样子：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># callable function</span>
-<span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># callable function
+def application(environ, start_response):
+    pass
 </code></pre></div>
 <p>如果这个对象是一个类的话，它看起来是这个样子：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># callable class</span>
-<span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-        <span class="k">pass</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># callable class
+class Application:
+    def __init__(self, environ, start_response):
+        pass
 </code></pre></div>
 <p>如果这个对象是一个类的实例，那么，这个类看起来是这个样子：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># callable object</span>
-<span class="k">class</span> <span class="nc">ApplicationObj</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-        <span class="k">pass</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># callable object
+class ApplicationObj:
+    def __call__(self, environ, start_response):
+        pass
 </code></pre></div>
 <p>最后，WSGI还规定:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">3.可调用对象要返回一个值，这个值是可迭代的。
+<div class="highlight"><pre><code class="language-text" data-lang="text">3.可调用对象要返回一个值，这个值是可迭代的。
 </code></pre></div>
 <p>这样的话，前面的三个例子就变成：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">HELLO_WORLD</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">HELLO_WORLD = b&quot;Hello world!\n&quot;
 
 
-<span class="c"># callable function</span>
-<span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">HELLO_WORLD</span><span class="p">]</span>
+# callable function
+def application(environ, start_response):
+    return [HELLO_WORLD]
 
 
-<span class="c"># callable class</span>
-<span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-        <span class="k">pass</span>
+# callable class
+class Application:
+    def __init__(self, environ, start_response):
+        pass
 
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">yield</span> <span class="n">HELLO_WORLD</span>
+    def __iter__(self):
+        yield HELLO_WORLD
 
 
-<span class="c"># callable object</span>
-<span class="k">class</span> <span class="nc">ApplicationObj</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">HELLO_WORLD</span><span class="p">]</span>
+# callable object
+class ApplicationObj:
+    def __call__(self, environ, start_response):
+        return [HELLO_WORLD]
 </code></pre></div>
 <p>你可能会说，不是啊，我们平时写的web程序不是这样啊。
 比如如果使用web.py框架的话，一个典型的应用可能是这样的:</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">class</span> <span class="nc">hello</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s">&#39;Hello, world!&#39;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">class hello:
+    def GET(self):
+        return &#39;Hello, world!&#39;
 </code></pre></div>
 <p>这是由于框架已经把WSGI中规定的一些东西封装起来了，我们平时用框架时，看不到这些东西，只需要直接实现我们的逻辑，再返回一个值就好了。其它的东西框架帮我们做好了。这也是框架的价值所在，把常用的东西封装起来，让使用者只需要关注最重要的东西。</p>
 
@@ -628,22 +642,22 @@
 <p>服务器程序会在每次客户端的请求传来时，调用我们写好的应用程序，并将处理好的结果返回给客户端。</p>
 
 <p>WSGI规定：</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">4.服务器程序需要调用应用程序
+<div class="highlight"><pre><code class="language-text" data-lang="text">4.服务器程序需要调用应用程序
 </code></pre></div>
 <p>服务器程序看起来大概是这个样子的：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">application</span><span class="p">):</span>
-    <span class="n">environ</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def run(application):
+    environ = {}
 
-    <span class="k">def</span> <span class="nf">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">pass</span>
+    def start_response(status, response_headers, exc_info=None):
+        pass
 
-    <span class="n">result</span> <span class="o">=</span> <span class="n">application</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">)</span>
+    result = application(environ, start_response)
 
-    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="k">pass</span>
+    def write(data):
+        pass
 
-    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-        <span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    for data in result:
+        write(data)
 </code></pre></div>
 <p>这里可以看出服务器程序是如何与应用程序配合完成用户请求的。</p>
 
@@ -668,17 +682,17 @@
 <p>其实无论是服务器程序，middleware 还是应用程序，都在服务端，为客户端提供服务，之所以把他们抽象成不同层，就是为了控制复杂度，使得每一次都不太复杂，各司其职。</p>
 
 <p>下面，我们看看middleware大概是什么样子的。</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="c"># URL Routing middleware</span>
-<span class="k">def</span> <span class="nf">urlrouting</span><span class="p">(</span><span class="n">url_app_mapping</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">midware_app</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="n">environ</span><span class="p">[</span><span class="s">&#39;PATH_INFO&#39;</span><span class="p">]</span>
-        <span class="n">app</span> <span class="o">=</span> <span class="n">url_app_mapping</span><span class="p">[</span><span class="n">url</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python"># URL Routing middleware
+def urlrouting(url_app_mapping):
+    def midware_app(environ, start_response):
+        url = environ[&#39;PATH_INFO&#39;]
+        app = url_app_mapping[url]
 
-        <span class="n">result</span> <span class="o">=</span> <span class="n">app</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">)</span>
+        result = app(environ, start_response)
 
-        <span class="k">return</span> <span class="n">result</span>
+        return result
 
-    <span class="k">return</span> <span class="n">midware_app</span>
+    return midware_app
 </code></pre></div>
 <p>函数 <code>midware_app</code>就是一个简单的middleware：对服务器而言，它是一个应用程序，是一个可调用对象， 有两个参数，返回一个可调用对象。对应用程序而言，它是一个服务器，为应用程序提供了参数，并且调用了应用程序。</p>
 
@@ -698,10 +712,10 @@
 所谓位置参数就是调用的时候，依靠位置来确定参数的语义，而不是参数名，也就是说服务
 器调用应用程序时，应该是这样：</li>
 </ul>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">application</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">start_response</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">application(env, start_response)
 </code></pre></div>
 <p>而不是这样：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">application</span><span class="p">(</span><span class="n">start_response</span><span class="o">=</span><span class="n">start_response</span><span class="p">,</span> <span class="n">environ</span><span class="o">=</span><span class="n">env</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">application(start_response=start_response, environ=env)
 </code></pre></div>
 <p>所以，参数名其实是可以随便起的，只不过为了表义清楚，我们起了<code>environ</code> 和 <code>start_response</code>。</p>
 
@@ -709,12 +723,12 @@
 <li>第一个参数environ是Python内置的dict对象，应用程序可以对这个参数任意修改。</li>
 <li>environ参数必须包含 WSGI 需要的一些变量(详见后文)<br>
 也可以包含一些扩展参数，命名规范见后文</li>
-<li>start_response参数是一个可调用对象。接受两个位置参数，一个可选参数。
+<li>start<em>response参数是一个可调用对象。接受两个位置参数，一个可选参数。
 例如：
-<code>python
-start_response(status, response_headers, exc_info=None)
-</code>
-status参数是状态码，例如 <code>200 OK</code> 。 </li>
+```python
+start</em>response(status, response<em>headers, exc</em>info=None)
+``<code>
+status参数是状态码，例如</code>200 OK` 。 </li>
 </ul>
 
 <p>response<em>headers参数是一个列表，列表项的形式为(header</em>name, header_value)。  </p>
@@ -724,12 +738,12 @@ status参数是状态码，例如 <code>200 OK</code> 。 </li>
 <p>status和response_headers的具体内容可以参考 <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec6.html#sec6">HTTP 协议 Response部分</a>。</p>
 
 <ul>
-<li>start_response必须返回一个可调用对象： <code>write(body_data)</code></li>
+<li>start<em>response必须返回一个可调用对象： `write(body</em>data)`</li>
 <li>应用程序必须返回一个可迭代对象。</li>
 <li>应用程序不应假设返回的可迭代对象被遍历至终止，因为遍历过程可能出现错误。</li>
 <li>应用程序必须在第一次返回可迭代数据之前调用 start<em>response 方法。<br>
-这是因为可迭代数据是 返回数据的 <code>body</code> 部分，在它返回之前，需要使用 <code>start_response</code>
-返回 response</em>headers 数据。</li>
+这是因为可迭代数据是 返回数据的 <code>body</code> 部分，在它返回之前，需要使用 `start</em>response`
+返回 response_headers 数据。</li>
 </ul>
 
 <h3>服务器程序</h3>
@@ -742,41 +756,42 @@ status参数是状态码，例如 <code>200 OK</code> 。 </li>
 </ul>
 
 <p>根据上述内容，我们的服务器程序看起来会是这个样子：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">application</span><span class="p">):</span>
-    <span class="n">environ</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">def run(application):
+    environ = {}
 
-    <span class="c"># set environ</span>
-    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-        <span class="k">pass</span>
+    # set environ
+    def write(data):
+        pass
 
-    <span class="k">def</span> <span class="nf">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">write</span>
+    def start_response(status, response_headers, exc_info=None):
+        return write
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="n">application</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">)</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s">&#39;close&#39;</span><span class="p">):</span>
-            <span class="n">result</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    try:
+        result = application(environ, start_response)
+    finally:
+        if hasattr(result, &#39;close&#39;):
+            result.close()
 
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s">&#39;__len__&#39;</span><span class="p">):</span>
-        <span class="c"># result must be accumulated</span>
-        <span class="k">pass</span>
+    if hasattr(result, &#39;__len__&#39;):
+        # result must be accumulated
+        pass
 
 
-    <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-        <span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    for data in result:
+        write(data)
 </code></pre></div>
 <p>应用程序看起来是这个样子：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">HELLO_WORLD</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;Hello world!</span><span class="se">\n</span><span class="s">&quot;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">HELLO_WORLD = b&quot;Hello world!\n&quot;
 
 
-<span class="c"># callable function</span>
-<span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
-    <span class="n">status</span> <span class="o">=</span> <span class="s">&#39;200 OK&#39;</span>
-    <span class="n">response_headers</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s">&#39;text/plain&#39;</span><span class="p">)]</span>
-    <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">)</span>
+# callable function
+def application(environ, start_response):
+    status = &#39;200 OK&#39;
+    response_headers = [(&#39;Content-type&#39;, &#39;text/plain&#39;)]
+    start_response(status, response_headers)
 
-    <span class="k">return</span> <span class="p">[</span><span class="n">HELLO_WORLD</span><span class="p">]</span>
+    return [HELLO_WORLD]
+
 </code></pre></div>
 <p>下面我们再详细介绍之前提到的一些数据结构</p>
 
@@ -800,30 +815,30 @@ HTTP 请求中的<code>Content-Lengh</code> 部分</li>
 <li>SERVER<em>NAME, SERVER</em>PORT<br>
 与 SCRIPT<em>NAME，PATH</em>INFO 共同构成完整的  URL，它们永远不会为空。但是，如果 HTTP<em>HOST 存在的话，当构建 URL 时， HTTP</em>HOST优先于SERVER_NAME。</li>
 <li>SERVER<em>PROTOCOL<br>
-客户端使用的协议，例如 &quot;HTTP/1.0&quot;, &quot;HTTP/1.1&quot;, 它决定了如何处理 HTTP 请求的头部。这个名字其实应该叫 <code>REQUEST_PROTOCOL</code>，因为它表示的是客户端请求的协议，而不是服务端响应的协议。但是为了和CGI兼容，我们只好叫这个名字了。
-*HTTP</em> Variables<br>
-这个是一个系列的变量名，都以<code>HTTP</code>开头，对应客户端支持的HTTP请求的头部信息。</li>
+客户端使用的协议，例如 &quot;HTTP/1.0&quot;, &quot;HTTP/1.1&quot;, 它决定了如何处理 HTTP 请求的头部。这个名字其实应该叫 `REQUEST</em>PROTOCOL<code>，因为它表示的是客户端请求的协议，而不是服务端响应的协议。但是为了和CGI兼容，我们只好叫这个名字了。
+*HTTP_ Variables  
+这个是一个系列的变量名，都以</code>HTTP`开头，对应客户端支持的HTTP请求的头部信息。</li>
 </ul>
 
 <p>WSGI 有一个参考实现，叫 wsgiref，里面有一个示例，我们这里引用这个示例的结果，展现一下这些变量，以便有一个直观的体会，这个示例访问的 URL 为 <code>http://localhost:8000/xyz?abc</code></p>
 
 <p>上面提到的变量值为：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">REQUEST_METHOD</span> <span class="o">=</span> <span class="s">&#39;GET&#39;</span>
-<span class="n">SCRIPT_NAME</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-<span class="n">PATH_INFO</span> <span class="o">=</span> <span class="s">&#39;/xyz&#39;</span>
-<span class="n">QUERY_STRING</span> <span class="o">=</span> <span class="s">&#39;abc&#39;</span>
-<span class="n">CONTENT_TYPE</span> <span class="o">=</span> <span class="s">&#39;text/plain&#39;</span>
-<span class="n">CONTENT_LENGTH</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
-<span class="n">SERVER_NAME</span> <span class="o">=</span> <span class="s">&#39;minix-ubuntu-desktop&#39;</span>
-<span class="n">SERVER_PORT</span> <span class="o">=</span> <span class="s">&#39;8000&#39;</span>
-<span class="n">SERVER_PROTOCOL</span> <span class="o">=</span> <span class="s">&#39;HTTP/1.1&#39;</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">REQUEST_METHOD = &#39;GET&#39;
+SCRIPT_NAME = &#39;&#39;
+PATH_INFO = &#39;/xyz&#39;
+QUERY_STRING = &#39;abc&#39;
+CONTENT_TYPE = &#39;text/plain&#39;
+CONTENT_LENGTH = &#39;&#39;
+SERVER_NAME = &#39;minix-ubuntu-desktop&#39;
+SERVER_PORT = &#39;8000&#39;
+SERVER_PROTOCOL = &#39;HTTP/1.1&#39;
 
-<span class="n">HTTP_ACCEPT</span> <span class="o">=</span> <span class="s">&#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#39;</span>
-<span class="n">HTTP_ACCEPT_ENCODING</span> <span class="o">=</span> <span class="s">&#39;gzip,deflate,sdch&#39;</span>
-<span class="n">HTTP_ACCEPT_LANGUAGE</span> <span class="o">=</span> <span class="s">&#39;en-US,en;q=0.8,zh;q=0.6,zh-CN;q=0.4,zh-TW;q=0.2&#39;</span>
-<span class="n">HTTP_CONNECTION</span> <span class="o">=</span> <span class="s">&#39;keep-alive&#39;</span>
-<span class="n">HTTP_HOST</span> <span class="o">=</span> <span class="s">&#39;localhost:8000&#39;</span>
-<span class="n">HTTP_USER_AGENT</span> <span class="o">=</span> <span class="s">&#39;Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36&#39;</span>
+HTTP_ACCEPT = &#39;text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#39;
+HTTP_ACCEPT_ENCODING = &#39;gzip,deflate,sdch&#39;
+HTTP_ACCEPT_LANGUAGE = &#39;en-US,en;q=0.8,zh;q=0.6,zh-CN;q=0.4,zh-TW;q=0.2&#39;
+HTTP_CONNECTION = &#39;keep-alive&#39;
+HTTP_HOST = &#39;localhost:8000&#39;
+HTTP_USER_AGENT = &#39;Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.77 Safari/537.36&#39;
 </code></pre></div>
 <p>另外，服务器还应该（非必须）提供尽可能多的CGI变量，如果支持SSL的话，还应该提供<a href="http://www.modssl.org/docs/2.8/ssl_reference.html#ToC25">Apache SSL 环境变量</a>。</p>
 
@@ -851,14 +866,14 @@ HTTP 请求中的<code>Content-Lengh</code> 部分</li>
 </ul>
 
 <p>这些值在 wsgiref示例中的值为：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">wsgi</span><span class="o">.</span><span class="n">errors</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nb">open</span> <span class="nb">file</span> <span class="s">&#39;&lt;stderr&gt;&#39;</span><span class="p">,</span> <span class="n">mode</span> <span class="s">&#39;w&#39;</span> <span class="n">at</span> <span class="mh">0xb735f0d0</span><span class="o">&gt;</span>
-<span class="n">wsgi</span><span class="o">.</span><span class="n">file_wrapper</span> <span class="o">=</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">wsgiref</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">FileWrapper</span> <span class="n">at</span> <span class="mh">0xb70525fc</span><span class="o">&gt;</span>
-<span class="n">wsgi</span><span class="o">.</span><span class="n">input</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">socket</span><span class="o">.</span><span class="n">_fileobject</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0xb7050e6c</span><span class="o">&gt;</span>
-<span class="n">wsgi</span><span class="o">.</span><span class="n">multiprocess</span> <span class="o">=</span> <span class="bp">False</span>
-<span class="n">wsgi</span><span class="o">.</span><span class="n">multithread</span> <span class="o">=</span> <span class="bp">True</span>
-<span class="n">wsgi</span><span class="o">.</span><span class="n">run_once</span> <span class="o">=</span> <span class="bp">False</span>
-<span class="n">wsgi</span><span class="o">.</span><span class="n">url_scheme</span> <span class="o">=</span> <span class="s">&#39;http&#39;</span>
-<span class="n">wsgi</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">wsgi.errors = &lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0xb735f0d0&gt;
+wsgi.file_wrapper = &lt;class wsgiref.util.FileWrapper at 0xb70525fc&gt;
+wsgi.input = &lt;socket._fileobject object at 0xb7050e6c&gt;
+wsgi.multiprocess = False
+wsgi.multithread = True
+wsgi.run_once = False
+wsgi.url_scheme = &#39;http&#39;
+wsgi.version = (1, 0)
 </code></pre></div>
 <p>另外，environ中还可以包含服务器自己定义的一些变量，这些变量应该只包含<br>
 * 小写字母
@@ -889,10 +904,10 @@ HTTP 请求中的<code>Content-Lengh</code> 部分</li>
 <h2>start_response()</h2>
 
 <p>start_response是HTTP响应的开始，它的形式为：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">start_response(status, response_headers, exc_info=None)
 </code></pre></div>
 <p>返回一个可调用对象，这个可调用对象形式为：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">write</span><span class="p">(</span><span class="n">body_data</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">write(body_data)
 </code></pre></div>
 <p>status 表示  HTTP 状态码，例如 &quot;200 OK&quot;, &quot;404 Not Found&quot;，它们在 <a href="http://www.faqs.org/rfcs/rfc2616.html">RFC 2616</a>中定义，status禁止包含控制字符。</p>
 
@@ -912,7 +927,7 @@ start_response raise出的  exceptions，应该交给服务器程序处理。</p
 
 <p>为了避免循环引用，start<em>response实现时需要保证 exc</em>info在函数调用后不再包含引用。
 也就是说start<em>response用完 exc</em>info后，需要保证执行一句</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="n">exc_info</span> <span class="o">=</span> <span class="bp">None</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">exc_info = None
 </code></pre></div>
 <p>这可以通过 try/finally实现。</p>
 
@@ -957,19 +972,19 @@ start_response raise出的  exceptions，应该交给服务器程序处理。</p
 
 <p>应用程序应该捕获它们自己的错误，internal erros， 并且将相关错误信息返回给浏览器。
 WSGI 提供了一种错误处理的方式，这就是之前提到的 exc_info参数。下面是 PEP 3333中提供的一段示例：</p>
-<div class="highlight"><pre><code class="python language-python" data-lang="python"><span class="k">try</span><span class="p">:</span>
-    <span class="c"># regular application code here</span>
-    <span class="n">status</span> <span class="o">=</span> <span class="s">&quot;200 Froody&quot;</span>
-    <span class="n">response_headers</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&quot;content-type&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)]</span>
-    <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">)</span>
-    <span class="k">return</span> <span class="p">[</span><span class="s">&quot;normal body goes here&quot;</span><span class="p">]</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="c"># XXX should trap runtime issues like MemoryError, KeyboardInterrupt</span>
-    <span class="c">#     in a separate handler before this bare &#39;except:&#39;...</span>
-    <span class="n">status</span> <span class="o">=</span> <span class="s">&quot;500 Oops&quot;</span>
-    <span class="n">response_headers</span> <span class="o">=</span> <span class="p">[(</span><span class="s">&quot;content-type&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)]</span>
-    <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">())</span>
-    <span class="k">return</span> <span class="p">[</span><span class="s">&quot;error body goes here&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-python" data-lang="python">try:
+    # regular application code here
+    status = &quot;200 Froody&quot;
+    response_headers = [(&quot;content-type&quot;, &quot;text/plain&quot;)]
+    start_response(status, response_headers)
+    return [&quot;normal body goes here&quot;]
+except:
+    # XXX should trap runtime issues like MemoryError, KeyboardInterrupt
+    #     in a separate handler before this bare &#39;except:&#39;...
+    status = &quot;500 Oops&quot;
+    response_headers = [(&quot;content-type&quot;, &quot;text/plain&quot;)]
+    start_response(status, response_headers, sys.exc_info())
+    return [&quot;error body goes here&quot;]
 </code></pre></div>
 <p>当出现异常时，start<em>response的exc</em>info参数被设置成 sys.exc_info()，这个函数会返回当前的异常。</p>
 

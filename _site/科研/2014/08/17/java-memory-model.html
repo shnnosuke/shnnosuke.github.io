@@ -69,31 +69,7 @@
       
             
                 <li>
-                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/设计模式"> 设计模式 (3) </a>
-                </li>
-            
-      
-            
-                <li style="background-color: #444">
-                <a href="/categories/科研"> 科研 (6) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/思想"> 思想 (2) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/技术"> 技术 (18) </a>
+                <a href="/categories/操作系统"> 操作系统 (2) </a>
                 </li>
             
       
@@ -105,13 +81,7 @@
       
             
                 <li>
-                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
-                </li>
-            
-      
-            
-                <li>
-                <a href="/categories/java"> java (11) </a>
+                <a href="/categories/技术"> 技术 (18) </a>
                 </li>
             
       
@@ -123,13 +93,31 @@
       
             
                 <li>
+                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/思想"> 思想 (2) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/源代码阅读"> 源代码阅读 (20) </a>
+                </li>
+            
+      
+            
+                <li>
                 <a href="/categories/读书"> 读书 (1) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/操作系统"> 操作系统 (1) </a>
+                <a href="/categories/生活"> 生活 (1) </a>
                 </li>
             
       
@@ -140,14 +128,26 @@
             
       
             
-                <li>
-                <a href="/categories/计算机系统"> 计算机系统 (3) </a>
+                <li style="background-color: #444">
+                <a href="/categories/科研"> 科研 (6) </a>
                 </li>
             
       
             
                 <li>
-                <a href="/categories/生活"> 生活 (1) </a>
+                <a href="/categories/java"> java (11) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/虚拟机"> 虚拟机 (1) </a>
+                </li>
+            
+      
+            
+                <li>
+                <a href="/categories/设计模式"> 设计模式 (3) </a>
                 </li>
             
       
@@ -160,6 +160,20 @@
   <ul class="archive-list">
     
     
+    
+        
+        
+        
+        
+            
+            <li>
+                <a href="/2017/09">
+                    2017-09 (1)
+                </a>
+            </li>
+
+        
+        
     
         
         
@@ -608,7 +622,7 @@
 <p>为了精确定义内存模型，Java语言规范中，提出了 Causality Requirements 的概念。不知道是什么原因，这个概念很少被提及，但是我觉得它是很重要的，但同时，也是非常令人费解的。语言规范中，首先定义了 Well-Formed Executions 的概念，现在对内存模型的很多讨论，都是在这一层，它包括了对多线程程序执行中，与锁，volatile变量，执行次序等等相关的规定。如果一个多线程程序的执行满足这些规定，那么这个执行就是 Well-Formed Executions 的。国内有一个系列文章《<a href="http://ifeve.com/java-memory-model-0/">深入理解Java内存模型</a>》，主要是在这方面描述Java内存模型。此外，在 Java 并发领域内著名的 Doug Lea 也给出了一个 <a href="http://gee.cs.oswego.edu/dl/jmm/cookbook.html">The JSR-133 Cookbook for Compiler Writers</a>，为编译器作者们提供参考,探讨的也是这方面的问题。但是，内存模型对多线程程序的执行是否合法，不仅仅要看它是否是 Well-Formed Executions，这次执行还需要满足 Causality Requirements。</p>
 
 <p>语言规范中规定了一个构造过程，如果通过这个构造过程，可以构造出多线程程序最终的执行结果，那么这次执行就满足 Causality Requirements。构造过程从一个空集合C0开始，每次将其中添加若干操作，如果所有操作都能被添加，那么构造成功。即，</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">C0 -&gt; C1 -&gt; C2 -&gt; ... -&gt; C
+<div class="highlight"><pre><code class="language-text" data-lang="text">C0 -&gt; C1 -&gt; C2 -&gt; ... -&gt; C
 </code></pre></div>
 <p>其中 C<em>i 是 C</em>(i+1) 的子集。你可能注意到了，之前说的“操作能被添加”，什么叫操作能被添加呢？语言规范中规定了，每一个 Ci 都对应一个 Ei，所有 Ei 都要满足 Well-Formed Executions。也就是说，如果你添加了操作后，对应的 Ei 不满足 Well-Formed Executions，那么这个操作就不能被添加。如果最终，你的多线程程序无法构造出这样一个执行链，那么，它的执行结果是非法的。</p>
 
